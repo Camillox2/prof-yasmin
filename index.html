@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Prof. Yasmin | Alfabetização e Matemática</title>
-<meta name="description" content="Aulas particulares de alfabetização, letramento, português e matemática, online para crianças que moram no exterior e presenciais. Aprender pode (e deve) ser leve!">
+<meta name="description" content="Aulas particulares de alfabetização, letramento, português e matemática. Online para crianças no exterior e presenciais. Aprender pode (e deve) ser leve!">
 <meta name="theme-color" content="#ffd9e8">
 <meta property="og:title" content="Prof. Yasmin | Alfabetização e Matemática">
 <meta property="og:description" content="Aprender pode (e deve) ser leve! Aulas personalizadas e com afeto.">
@@ -12,28 +12,61 @@
 <meta property="og:locale" content="pt_BR">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="preload" href="/fonts/baloo-2-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="/fonts/nunito-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/caveat-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
 <a class="skip" href="#conteudo">Pular para o conteúdo</a>
 
+<!-- Icon sprite: sticker-style line icons -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="i-books" viewBox="0 0 64 64"><g stroke="#0d3f7a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 56h52" fill="none"/><rect x="10" y="22" width="11" height="34" rx="2" fill="#ff8fb8"/><rect x="23" y="10" width="12" height="46" rx="2" fill="#6cc0f7"/><path d="M38 56l5-36 10 1.5-5 36z" fill="#ffd36b"/><path d="M13 30h5M13 48h5M27 20h5" fill="none" stroke="#fff"/></g></symbol>
+    <symbol id="i-pencil" viewBox="0 0 64 64"><g stroke="#0d3f7a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M12 52L42 22l8 8-30 30-12 4z" fill="#ffd36b"/><path d="M12 52l-4 12 12-4" fill="#f6d3a6"/><path d="M42 22l5-5a4 4 0 0 1 6 0l2 2a4 4 0 0 1 0 6l-5 5z" fill="#ff8fb8"/><path d="M36 28l8 8" fill="none"/></g></symbol>
+    <symbol id="i-bulb" viewBox="0 0 64 64"><g stroke="#0d3f7a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M32 6a18 18 0 0 0-10 33v8h20v-8A18 18 0 0 0 32 6z" fill="#ffd36b"/><path d="M25 54h14M28 60h8" fill="none"/><path d="M26 22a8 8 0 0 1 6-6" fill="none" stroke="#fff"/></g></symbol>
+    <symbol id="i-globe" viewBox="0 0 64 64"><g stroke="#0d3f7a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="32" cy="32" r="24" fill="#6cc0f7"/><path d="M8 32h48M32 8c-12 12-12 36 0 48M32 8c12 12 12 36 0 48" fill="none"/><path d="M14 20c6 3 10 1 14-4M40 44c4-6 10-6 14-4" fill="#8fe3c0"/></g></symbol>
+    <symbol id="i-calc" viewBox="0 0 64 64"><g stroke="#0d3f7a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><rect x="12" y="6" width="40" height="52" rx="7" fill="#c9b6ff"/><rect x="18" y="12" width="28" height="12" rx="3" fill="#fff"/><circle cx="23" cy="34" r="3" fill="#ff8fb8"/><circle cx="32" cy="34" r="3" fill="#ffd36b"/><circle cx="41" cy="34" r="3" fill="#8fe3c0"/><circle cx="23" cy="45" r="3" fill="#6cc0f7"/><circle cx="32" cy="45" r="3" fill="#ff8fb8"/><circle cx="41" cy="45" r="3" fill="#ffd36b"/></g></symbol>
+    <symbol id="i-clock" viewBox="0 0 64 64"><g stroke="#0d3f7a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="32" cy="32" r="24" fill="#fff2c9"/><path d="M32 18v15l10 6" fill="none"/></g></symbol>
+    <symbol id="i-heart" viewBox="0 0 64 64"><path d="M32 56S8 41 8 24a13 13 0 0 1 24-7 13 13 0 0 1 24 7c0 17-24 32-24 32z" fill="#ff8fb8" stroke="#0d3f7a" stroke-width="3" stroke-linejoin="round"/></symbol>
+    <symbol id="i-star" viewBox="0 0 64 64"><polygon points="32,5 39,24 59,25 43,38 49,58 32,46 15,58 21,38 5,25 25,24" fill="#ffd36b" stroke="#0d3f7a" stroke-width="3" stroke-linejoin="round"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 64 64"><g stroke="#0d3f7a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M8 12h48v32H30L16 56V44H8z" fill="#8fe3c0"/><path d="M18 24h28M18 33h18" fill="none"/></g></symbol>
+    <symbol id="i-puzzle" viewBox="0 0 64 64"><path d="M10 22h12a6 6 0 1 1 12 0h12v12a6 6 0 1 1 0 12v10H34a6 6 0 1 0-12 0H10V46a6 6 0 1 0 0-12z" fill="#8fe3c0" stroke="#0d3f7a" stroke-width="3" stroke-linejoin="round" transform="translate(0 -4)"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 64 64"><g stroke="#0d3f7a" stroke-width="3" stroke-linejoin="round"><path d="M32 60S12 40 12 26a20 20 0 0 1 40 0c0 14-20 34-20 34z" fill="#ff8fb8"/><circle cx="32" cy="26" r="7" fill="#fff"/></g></symbol>
+    <symbol id="i-laptop" viewBox="0 0 64 64"><g stroke="#0d3f7a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><rect x="12" y="12" width="40" height="28" rx="4" fill="#cfeaff"/><path d="M5 48h54l-4 7H9z" fill="#ffd36b"/><path d="M22 22h20M22 30h12" fill="none"/></g></symbol>
+    <symbol id="i-cloud" viewBox="0 0 120 60"><path d="M24 56a20 20 0 0 1 2-40 28 28 0 0 1 54-4 22 22 0 0 1 14 44z" fill="#fff"/></symbol>
+    <symbol id="owl" viewBox="0 0 200 224">
+      <g stroke="#0d3f7a" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+        <ellipse cx="78" cy="212" rx="18" ry="7" fill="#ffb347"/><ellipse cx="124" cy="212" rx="18" ry="7" fill="#ffb347"/>
+        <path d="M54 74L42 34l38 20z" fill="#ff8fb8"/><path d="M146 74l12-40-38 20z" fill="#ff8fb8"/>
+        <ellipse cx="100" cy="124" rx="60" ry="82" fill="#ffb3d1"/>
+        <ellipse cx="100" cy="150" rx="38" ry="48" fill="#fff2f8" stroke="none"/>
+        <path d="M82 140q6 8 12 0M94 140q6 8 12 0M106 140q6 8 12 0M88 158q6 8 12 0M100 158q6 8 12 0M94 176q6 8 12 0" fill="none" stroke="#ff8fb8" stroke-width="3"/>
+        <path d="M46 112q-26 36 4 80 20-24 14-74z" fill="#6cc0f7"/><path d="M154 112q26 36-4 80-20-24-14-74z" fill="#6cc0f7"/>
+        <circle cx="76" cy="94" r="25" fill="#fff"/><circle cx="124" cy="94" r="25" fill="#fff"/>
+        <path d="M100 94h0" />
+        <g class="pupils"><circle cx="79" cy="97" r="11" fill="#0d3f7a" stroke="none"/><circle cx="121" cy="97" r="11" fill="#0d3f7a" stroke="none"/><circle cx="83" cy="92" r="4" fill="#fff" stroke="none"/><circle cx="125" cy="92" r="4" fill="#fff" stroke="none"/></g>
+        <path d="M91 114l9 16 9-16z" fill="#ffd36b"/>
+        <circle cx="52" cy="122" r="7" fill="#ff6fa5" stroke="none" opacity=".6"/><circle cx="148" cy="122" r="7" fill="#ff6fa5" stroke="none" opacity=".6"/>
+      </g>
+    </symbol>
+  </defs>
+</svg>
+
 <header class="nav" id="topo">
   <div class="nav__inner">
     <a class="brand" href="#inicio" aria-label="Prof. Yasmin, início">
       <span class="logo" aria-hidden="true"><span class="logo__prof">Prof. <i>♡</i></span><span class="logo__name">Yasmin</span></span>
-      <span class="brand__text">Prof. Yasmin<small>Alfabetização e Matemática</small></span>
+      <span class="brand__text">Prof. Yasmin</span>
     </a>
     <button class="nav__toggle" aria-expanded="false" aria-controls="menu" aria-label="Abrir menu"><span></span><span></span><span></span></button>
     <nav id="menu" class="nav__menu" aria-label="Principal">
-      <a href="#sobre">Sobre</a>
-      <a href="#online">Aulas online</a>
-      <a href="#presencial">Presenciais</a>
-      <a href="#como-funciona">Como funciona</a>
-      <a href="#duvidas">Dúvidas</a>
+      <a href="#aprender">Aprender</a>
+      <a href="#online">Online</a>
+      <a href="#presencial">Presencial</a>
+      <a href="#comecar">Como começar</a>
       <!-- TODO (DC Foundry): atualize o href abaixo para a URL do CRM quando ele estiver no ar. Hoje /crm é uma página "Em breve". -->
       <a class="nav__crm" href="/crm">Área da professora</a>
-      <a class="btn btn--small" href="#contato">Falar com a Prof. Yasmin</a>
+      <a class="btn btn--small" href="https://ig.me/m/yasminmakhare.pedagoga" target="_blank" rel="noopener">Chamar no Insta</a>
     </nav>
   </div>
 </header>
@@ -42,233 +75,159 @@
 
 <!-- HERO -->
 <section class="hero" id="inicio">
-  <div class="hero__deco" aria-hidden="true">
-    <span class="star s1">★</span><span class="star s2">✦</span><span class="star s3">★</span><span class="star s4">✦</span><span class="star s5">★</span>
-    <span class="blob b1"></span><span class="blob b2"></span><span class="blob b3"></span>
-    <svg class="rainbow" viewBox="0 0 200 110"><g fill="none" stroke-width="12" stroke-linecap="round"><path d="M12 104a88 88 0 0 1 176 0" stroke="#ff8fb8"/><path d="M30 104a70 70 0 0 1 140 0" stroke="#ffd36b"/><path d="M48 104a52 52 0 0 1 104 0" stroke="#8fe3c0"/><path d="M66 104a34 34 0 0 1 68 0" stroke="#8fd0ff"/></g></svg>
+  <div class="hero__sky" aria-hidden="true">
+    <i class="wash w1"></i><i class="wash w2"></i><i class="wash w3"></i><i class="wash w4"></i>
+    <svg class="cloud c1"><use href="#i-cloud"/></svg>
+    <svg class="cloud c2"><use href="#i-cloud"/></svg>
+    <svg class="cloud c3"><use href="#i-cloud"/></svg>
+    <span class="star s1">★</span><span class="star s2">✦</span><span class="star s3">★</span><span class="star s4">✦</span>
   </div>
   <div class="wrap hero__grid">
     <div class="hero__copy">
       <p class="eyebrow">🌸 Professora particular</p>
-      <h1>Aprender pode <span class="hl">(e deve)</span> ser leve!</h1>
-      <p class="lead">Alfabetização, letramento e matemática com acompanhamento individualizado, respeitando o ritmo de cada criança. Aulas personalizadas e com afeto, online ou presenciais.</p>
+      <h1>Aprender pode <span class="hl">(e deve)</span> ser <span class="leve">leve!</span></h1>
+      <p class="motto">Aulas personalizadas e com afeto</p>
       <div class="cta-row">
-        <a class="btn" href="#contato">Quero saber mais</a>
-        <a class="btn btn--ghost" href="#como-funciona">Como funciona</a>
+        <a class="btn btn--lg" href="https://ig.me/m/yasminmakhare.pedagoga" target="_blank" rel="noopener">Chamar no Instagram <span aria-hidden="true">→</span></a>
+        <a class="link" href="#aprender">Ver aulas</a>
       </div>
-      <ul class="chips" aria-label="Áreas">
-        <li>✏️ Alfabetização</li><li>📖 Letramento</li><li>➕ Matemática</li>
-      </ul>
     </div>
-    <div class="hero__art" aria-hidden="true">
-      <div class="notebook">
-        <div class="notebook__holes"><i></i><i></i><i></i><i></i></div>
+    <!-- TODO (DC Foundry): se a Prof. Yasmin enviar uma foto, ela pode entrar no caderno desta cena no lugar da coruja. -->
+    <div class="scene" aria-hidden="true">
+      <svg class="rainbow" viewBox="0 0 300 160"><g fill="none" stroke-width="18" stroke-linecap="round"><path d="M20 150a130 130 0 0 1 260 0" stroke="#ff8fb8"/><path d="M46 150a104 104 0 0 1 208 0" stroke="#ffd36b"/><path d="M72 150a78 78 0 0 1 156 0" stroke="#8fe3c0"/><path d="M98 150a52 52 0 0 1 104 0" stroke="#6cc0f7"/></g></svg>
+      <div class="notebook" data-speed="-0.04">
+        <div class="notebook__tape"></div>
+        <div class="notebook__rings"><i></i><i></i><i></i><i></i><i></i></div>
         <div class="notebook__page">
-          <p class="hand">A B C</p>
-          <p class="hand hand--b">1 + 2 = 3</p>
-          <p class="hand hand--c">Bora aprender?</p>
-          <span class="underline"></span>
+          <p class="hand h1x">A B C</p>
+          <p class="hand h2x">1 + 2 = 3</p>
+          <p class="hand h3x">Bora aprender?</p>
         </div>
-        <!-- pencil -->
-        <svg class="pencil pencil--a" viewBox="0 0 60 220"><g><polygon points="30,0 44,34 16,34" fill="#f6d3a6"/><polygon points="30,0 36,14 24,14" fill="#33415c"/><rect x="16" y="34" width="28" height="140" fill="#ffd36b"/><rect x="16" y="34" width="9" height="140" fill="#ffc03d"/><rect x="16" y="174" width="28" height="12" fill="#c8d3e0"/><rect x="16" y="186" width="28" height="28" rx="9" fill="#ff8fb8"/></g></svg>
-        <svg class="pencil pencil--b" viewBox="0 0 60 220"><g><polygon points="30,0 44,34 16,34" fill="#f6d3a6"/><polygon points="30,0 36,14 24,14" fill="#33415c"/><rect x="16" y="34" width="28" height="140" fill="#8fd0ff"/><rect x="16" y="34" width="9" height="140" fill="#5fb7f5"/><rect x="16" y="174" width="28" height="12" fill="#c8d3e0"/><rect x="16" y="186" width="28" height="28" rx="9" fill="#ff8fb8"/></g></svg>
       </div>
-      <span class="bubble bubble--1">Português</span>
-      <span class="bubble bubble--2">Matemática</span>
-      <span class="bubble bubble--3">Com afeto 💙</span>
+      <svg class="owl" viewBox="0 0 200 224" data-speed="0.03"><use href="#owl"/></svg>
+      <div class="chip-ill ci1 sticker"><svg><use href="#i-books"/></svg></div>
+      <div class="chip-ill ci2 sticker"><svg><use href="#i-pencil"/></svg></div>
+      <div class="chip-ill ci3 sticker"><svg><use href="#i-bulb"/></svg></div>
+      <div class="chip-ill ci4 sticker"><svg><use href="#i-star"/></svg></div>
     </div>
   </div>
+  <span class="torn" style="--next:#fffaf0"></span>
 </section>
 
-<!-- SOBRE -->
-<section class="section section--paper" id="sobre">
-  <div class="wrap about">
-    <div class="about__art reveal" aria-hidden="true">
-      <!-- TODO (DC Foundry): trocar este selo pela foto ou pelo logo oficial da Prof. Yasmin, quando ela enviar. -->
-      <div class="badge">
-        <div class="badge__ring"></div>
-        <div class="badge__logo"><span class="logo__prof">Prof. <i>♡</i></span><span class="logo__name">Yasmin</span><small>Alfabetização • Matemática</small></div>
-      </div>
-      <span class="sticker st1">✏️</span><span class="sticker st2">⭐</span><span class="sticker st3">📚</span>
+<!-- APRENDER -->
+<section class="section paper" id="aprender" style="--next:#3a9be6">
+  <div class="wrap center">
+    <p class="eyebrow reveal">Alfabetização, letramento e matemática</p>
+    <h2 class="reveal">Letra por letra, <span class="script">número por número</span></h2>
+    <div class="tiles reveal" aria-label="Ler, escrever, contar">
+      <div class="row"><b class="t t1">L</b><b class="t t2">E</b><b class="t t3">R</b></div>
+      <div class="row"><b class="t t4">E</b><b class="t t5">S</b><b class="t t6">C</b><b class="t t1">R</b><b class="t t2">E</b><b class="t t3">V</b><b class="t t4">E</b><b class="t t5">R</b></div>
+      <div class="row"><b class="t t6">C</b><b class="t t1">O</b><b class="t t2">N</b><b class="t t3">T</b><b class="t t4">A</b><b class="t t5">R</b></div>
     </div>
-    <div class="about__copy reveal">
-      <p class="eyebrow">Sobre a Prof. Yasmin</p>
-      <h2>Um olhar atento para cada criança</h2>
-      <p>A Prof. Yasmin atua como professora da Educação Infantil e do Ensino Fundamental, oferecendo aulas particulares com foco em reforço escolar e alfabetização, por meio de um acompanhamento individualizado e de estratégias adequadas às necessidades de cada aluno.</p>
-      <p>O trabalho busca superar dificuldades de aprendizagem, fortalecer os conteúdos escolares e desenvolver as habilidades de leitura e escrita, sempre respeitando o ritmo e a individualidade de cada criança.</p>
-      <p>Com um olhar que vem da Pedagogia e da Psicomotricidade, ela mostra que aprender fica muito mais fácil quando é leve, divertido e feito com carinho.</p>
-      <ul class="ticks">
-        <li>Acompanhamento individualizado</li>
-        <li>Aulas personalizadas e com afeto</li>
-        <li>Estratégias pensadas para cada aluno</li>
-      </ul>
-    </div>
+    <ul class="pills reveal">
+      <li class="sticker"><svg><use href="#i-pencil"/></svg>Alfabetização</li>
+      <li class="sticker"><svg><use href="#i-books"/></svg>Letramento</li>
+      <li class="sticker"><svg><use href="#i-calc"/></svg>Matemática lúdica</li>
+      <li class="sticker"><svg><use href="#i-puzzle"/></svg>Inclusão</li>
+    </ul>
   </div>
+  <span class="torn"></span>
 </section>
 
 <!-- ONLINE -->
-<section class="section section--world" id="online">
-  <div class="stars-bg" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
-  <div class="wrap world">
-    <div class="world__art" aria-hidden="true">
+<section class="section world" id="online" style="--next:#ffe3ef">
+  <div class="stars-bg" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  <svg class="cloud wc1" aria-hidden="true"><use href="#i-cloud"/></svg>
+  <svg class="cloud wc2" aria-hidden="true"><use href="#i-cloud"/></svg>
+  <div class="wrap world__grid">
+    <div class="globe-wrap" aria-hidden="true">
+      <div class="orbit">
+        <b class="fl fl1">A</b><b class="fl fl2">b</b><b class="fl fl3">Ç</b><b class="fl fl4">1</b><b class="fl fl5">ã</b><b class="fl fl6">2</b><b class="fl fl7">M</b><b class="fl fl8">+</b>
+      </div>
       <div class="globe"><div class="globe__map"></div><div class="globe__shine"></div></div>
-      <span class="fl fl1">A</span><span class="fl fl2">b</span><span class="fl fl3">Ç</span><span class="fl fl4">1</span><span class="fl fl5">ã</span><span class="fl fl6">2</span><span class="fl fl7">M</span><span class="fl fl8">+</span>
       <span class="pin">💛</span>
     </div>
-    <div class="world__copy reveal">
-      <p class="eyebrow eyebrow--light">Mundo das letras</p>
-      <h2>Aulas de português online, de qualquer lugar do mundo</h2>
-      <p>Para crianças brasileiras até o <strong>5º ano</strong> que moram em outros países. Aulas de língua portuguesa para manter o idioma vivo, com leitura, escrita e brincadeiras que aproximam a criança da língua e da cultura da família.</p>
-      <ul class="ticks ticks--light">
-        <li>Para alunos até o 5º ano do Ensino Fundamental</li>
-        <li>Horários combinados conforme o fuso horário da sua família</li>
-        <li>Atenção individual, no ritmo de cada criança</li>
+    <div class="world__copy">
+      <p class="eyebrow reveal">Mundo das letras</p>
+      <h2 class="reveal">Português online, <span class="script">de qualquer lugar</span></h2>
+      <ul class="rows reveal">
+        <li><span class="sticker ic"><svg><use href="#i-globe"/></svg></span>Para quem mora fora do Brasil</li>
+        <li><span class="sticker ic"><svg><use href="#i-books"/></svg></span>Até o 5º ano</li>
+        <li><span class="sticker ic"><svg><use href="#i-clock"/></svg></span>Horários no seu fuso</li>
       </ul>
-      <a class="btn btn--white" href="#contato">Combinar aulas online</a>
+      <a class="btn btn--white reveal" href="https://ig.me/m/yasminmakhare.pedagoga" target="_blank" rel="noopener">Quero aula online</a>
     </div>
   </div>
+  <span class="torn"></span>
 </section>
 
 <!-- PRESENCIAL -->
-<section class="section section--rainbow" id="presencial">
-  <div class="wrap">
-    <div class="section__head reveal">
-      <p class="eyebrow">Aulas presenciais</p>
-      <h2>Aulas particulares em língua portuguesa e matemática</h2>
-      <p class="sub">Presenciais, para crianças até o <strong>4º ano</strong>. Reforço escolar com acompanhamento de perto.</p>
-    </div>
-    <div class="cards cards--2">
-      <article class="card card--pink reveal">
-        <div class="card__icon" aria-hidden="true">📖</div>
-        <h3>Língua portuguesa</h3>
-        <p>Alfabetização, leitura, escrita e compreensão de textos, sempre respeitando o ritmo da criança.</p>
+<section class="section pinky" id="presencial" style="--next:#fffaf0">
+  <div class="wrap center">
+    <p class="eyebrow reveal">Aulas presenciais</p>
+    <h2 class="reveal">Pertinho de você, <span class="script">até o 4º ano</span></h2>
+    <div class="duo">
+      <article class="big card--pink reveal">
+        <span class="ribbon">Português</span>
+        <div class="big__ill"><svg><use href="#i-books"/></svg><b class="mini mini1">A</b><b class="mini mini2">B</b></div>
+        <p>Ler e escrever com alegria</p>
       </article>
-      <article class="card card--blue reveal">
-        <div class="card__icon" aria-hidden="true">🔢</div>
-        <h3>Matemática</h3>
-        <p>Matemática lúdica, com materiais e jogos, para que os números façam sentido e a criança ganhe confiança.</p>
+      <article class="big card--blue reveal">
+        <span class="ribbon">Matemática</span>
+        <div class="big__ill"><svg><use href="#i-calc"/></svg><b class="mini mini1">1</b><b class="mini mini2">+</b></div>
+        <p>Números sem medo</p>
       </article>
     </div>
-    <p class="note reveal">Local e disponibilidade são combinados diretamente com a Prof. Yasmin.</p>
   </div>
+  <span class="torn"></span>
 </section>
 
-<!-- COMO FUNCIONA -->
-<section class="section section--paper" id="como-funciona">
-  <div class="wrap">
-    <div class="section__head reveal">
-      <p class="eyebrow">Como funciona</p>
-      <h2>Um jeito leve de aprender</h2>
-      <p class="sub">Cada criança aprende de um jeito. Por isso, as aulas são pensadas para quem está na frente da professora.</p>
-    </div>
-    <div class="cards cards--4">
-      <article class="card card--pink reveal">
-        <div class="card__icon" aria-hidden="true">✏️</div>
-        <h3>Alfabetização</h3>
-        <p>Da primeira letra à leitura com autonomia, passo a passo e sem pressa.</p>
-      </article>
-      <article class="card card--blue reveal">
-        <div class="card__icon" aria-hidden="true">📚</div>
-        <h3>Letramento</h3>
-        <p>Muito mais que aprender o ABC: compreender palavras, interpretar histórias e usar a leitura no dia a dia.</p>
-      </article>
-      <article class="card card--yellow reveal">
-        <div class="card__icon" aria-hidden="true">🎲</div>
-        <h3>Matemática lúdica</h3>
-        <p>Com o método certo, tudo começa a fazer sentido. Aprender números pode ser divertido.</p>
-      </article>
-      <article class="card card--mint reveal">
-        <div class="card__icon" aria-hidden="true">🧩</div>
-        <h3>Inclusão</h3>
-        <p>Estratégias ajustadas às necessidades de cada criança, com apoio visual, acolhimento emocional e muita compreensão, inclusive para alunos com autismo ou TDAH.</p>
-      </article>
-    </div>
-    <ol class="steps reveal">
-      <li><b>1</b><span>Você chama a Prof. Yasmin no Instagram</span></li>
-      <li><b>2</b><span>Conversam sobre a criança e o que ela precisa</span></li>
-      <li><b>3</b><span>Combinam horários e modalidade</span></li>
-      <li><b>4</b><span>As aulas começam, no ritmo da criança</span></li>
+<!-- COMO COMECAR -->
+<section class="section paper dots" id="comecar" style="--next:#d9efff">
+  <div class="wrap center">
+    <p class="eyebrow reveal">Como começar</p>
+    <h2 class="reveal">Três passos <span class="script">e pronto</span></h2>
+    <ol class="steps">
+      <li class="reveal"><span class="sticker ic ic--lg" style="--sh:#ff8fb8"><svg><use href="#i-chat"/></svg><em>1</em></span><b>Chame no Insta</b></li>
+      <li class="reveal"><span class="sticker ic ic--lg" style="--sh:#6cc0f7"><svg><use href="#i-heart"/></svg><em>2</em></span><b>Conte sobre a criança</b></li>
+      <li class="reveal"><span class="sticker ic ic--lg" style="--sh:#ffd36b"><svg><use href="#i-pencil"/></svg><em>3</em></span><b>Comecem as aulas</b></li>
     </ol>
   </div>
+  <div class="ribbon-band" aria-hidden="true"><div class="ribbon-track"><span>Alfabetização ✦ Letramento ✦ Matemática lúdica ✦ Inclusão ✦ Aprender com afeto ✦ </span><span>Alfabetização ✦ Letramento ✦ Matemática lúdica ✦ Inclusão ✦ Aprender com afeto ✦ </span></div></div>
+  <span class="torn"></span>
 </section>
 
 <!-- DUVIDAS -->
-<section class="section section--sky" id="duvidas">
+<section class="section sky" id="duvidas" style="--next:#ffd9e8">
   <div class="wrap wrap--narrow">
-    <div class="section__head reveal">
-      <p class="eyebrow">Dúvidas frequentes</p>
-      <h2>Ficou com alguma pergunta?</h2>
-    </div>
+    <h2 class="center reveal">Dúvidas?</h2>
     <div class="faq reveal">
-      <details>
-        <summary>Para quais idades são as aulas?</summary>
-        <p>As aulas online de português são para crianças até o 5º ano. As aulas presenciais de língua portuguesa e matemática são até o 4º ano.</p>
-      </details>
-      <details>
-        <summary>Meu filho mora fora do Brasil. Dá para fazer aula online?</summary>
-        <p>Dá, sim! As aulas online são pensadas para crianças que moram em outros países. Os horários são combinados conforme o fuso horário da sua família.</p>
-      </details>
-      <details>
-        <summary>Como funcionam as aulas presenciais?</summary>
-        <p>São aulas particulares de língua portuguesa e matemática, com acompanhamento individualizado. Local e disponibilidade são combinados direto com a Prof. Yasmin.</p>
-      </details>
-      <details>
-        <summary>Meu filho tem dificuldade de aprendizagem, autismo ou TDAH. Posso procurar a Prof. Yasmin?</summary>
-        <p>Pode. As aulas usam estratégias ajustadas às necessidades de cada criança, com intervenções claras, apoio visual e acolhimento emocional. Conte um pouco sobre o seu filho na conversa inicial.</p>
-      </details>
-      <details>
-        <summary>Quais são os horários e valores?</summary>
-        <p>Horários e valores são informados diretamente pela Prof. Yasmin. É só chamar no Instagram.</p>
-      </details>
+      <details><summary>Para quais idades?</summary><p>Online até o 5º ano. Presencial até o 4º ano.</p></details>
+      <details><summary>E os valores?</summary><p>É só chamar no Instagram.</p></details>
+      <details><summary>Autismo ou TDAH?</summary><p>Pode vir. As aulas se adaptam a cada criança.</p></details>
     </div>
   </div>
+  <span class="torn"></span>
 </section>
 
 <!-- CONTATO -->
-<section class="section section--contact" id="contato">
-  <div class="wrap contact">
-    <div class="contact__copy reveal">
-      <p class="eyebrow">Vamos conversar?</p>
-      <h2>Conte um pouquinho sobre a criança</h2>
-      <p>Preencha os campos e a gente monta a mensagem para você. Ao clicar, o texto é copiado e a conversa com a Prof. Yasmin abre no Instagram. É só colar e enviar.</p>
-      <p class="muted">Nada é enviado por este site.</p>
+<section class="section contact" id="contato">
+  <div class="wrap">
+    <div class="contact__card reveal">
+      <svg class="owl owl--c" viewBox="0 0 200 224" aria-hidden="true"><use href="#owl"/></svg>
+      <h2>Bora <span class="script">conversar?</span></h2>
+      <!-- TODO (DC Foundry): ainda não há número de WhatsApp. Quando a Prof. Yasmin informar, adicione aqui um botão "WhatsApp" (https://wa.me/55DDDNUMERO) ao lado do botão do Instagram. -->
+      <a class="btn btn--lg" href="https://ig.me/m/yasminmakhare.pedagoga" target="_blank" rel="noopener">Chamar no Instagram <span aria-hidden="true">→</span></a>
+      <p class="handle">@yasminmakhare.pedagoga</p>
     </div>
-    <!-- TODO (DC Foundry): ainda não há número de WhatsApp. Quando a Prof. Yasmin informar, adicione aqui um botão "Chamar no WhatsApp" (https://wa.me/55DDDNUMERO) ao lado do botão do Instagram. -->
-    <form class="form reveal" id="form" novalidate>
-      <label>Seu nome
-        <input name="nome" type="text" autocomplete="name" placeholder="Como posso chamar você?">
-      </label>
-      <label>Quero aulas
-        <select name="modalidade">
-          <option>Online (moro fora do Brasil)</option>
-          <option>Presenciais</option>
-          <option>Ainda não sei</option>
-        </select>
-      </label>
-      <label>Ano escolar da criança
-        <input name="ano" type="text" placeholder="Ex.: 2º ano">
-      </label>
-      <label>Mensagem (opcional)
-        <textarea name="msg" rows="3" placeholder="Conte o que a criança precisa"></textarea>
-      </label>
-      <button class="btn btn--wide" type="submit">Copiar mensagem e abrir o Instagram</button>
-      <p class="form__status" id="status" role="status" aria-live="polite"></p>
-      <p class="form__alt">Ou vá direto: <a href="https://ig.me/m/yasminmakhare.pedagoga" target="_blank" rel="noopener">enviar mensagem no Instagram</a></p>
-    </form>
   </div>
 </section>
 </main>
 
 <footer class="footer">
   <div class="wrap footer__inner">
-    <div>
-      <strong>Prof. Yasmin | Alfabetização e Matemática</strong>
-      <p>Aprender pode (e deve) ser leve! 💙</p>
-    </div>
-    <div class="footer__links">
-      <a href="https://www.instagram.com/yasminmakhare.pedagoga/" target="_blank" rel="noopener">@yasminmakhare.pedagoga</a>
-      <a href="/crm">Área da professora</a>
-    </div>
+    <p class="footer__brand">Prof. Yasmin <span>| Alfabetização e Matemática</span></p>
+    <a href="/crm">Área da professora</a>
     <p class="credit">Site por <a href="https://dcfoundrydigital.com" target="_blank" rel="noopener">DC Foundry Digital</a></p>
   </div>
 </footer>

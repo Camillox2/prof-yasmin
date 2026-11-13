@@ -19,22 +19,18 @@ document.documentElement.classList.add('js');
     els.forEach(function (el) { io.observe(el); });
   } else { els.forEach(function (el) { el.classList.add('in'); }); }
 
-  var form = document.getElementById('form');
-  var status = document.getElementById('status');
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
-    var d = new FormData(form);
-    var nome = (d.get('nome') || '').toString().trim();
-    var ano = (d.get('ano') || '').toString().trim();
-    var msg = (d.get('msg') || '').toString().trim();
-    var text = 'Olá, Prof. Yasmin! ' + (nome ? 'Meu nome é ' + nome + '. ' : '') +
-      'Tenho interesse em aulas: ' + String(d.get('modalidade')).toLowerCase() + '.' +
-      (ano ? ' A criança está no ' + ano + '.' : '') + (msg ? ' ' + msg : '') +
-      ' Pode me passar horários e valores?';
-    var url = 'https://ig.me/m/yasminmakhare.pedagoga';
-    function go() { status.textContent = 'Mensagem copiada! Cole na conversa do Instagram e envie.'; window.open(url, '_blank', 'noopener'); }
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(text).then(go, function () { status.textContent = 'Abrindo o Instagram. Escreva sua mensagem por lá.'; window.open(url, '_blank', 'noopener'); });
-    } else { status.textContent = 'Abrindo o Instagram. Escreva sua mensagem por lá.'; window.open(url, '_blank', 'noopener'); }
-  });
+  // leve parallax no hero
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var items = document.querySelectorAll('[data-speed]');
+  if (!reduce && items.length) {
+    var ticking = false;
+    window.addEventListener('scroll', function () {
+      if (ticking) return; ticking = true;
+      requestAnimationFrame(function () {
+        var y = Math.min(window.scrollY, 900);
+        items.forEach(function (el) { el.style.translate = '0 ' + (y * parseFloat(el.dataset.speed) * 4).toFixed(1) + 'px'; });
+        ticking = false;
+      });
+    }, { passive: true });
+  }
 })();
