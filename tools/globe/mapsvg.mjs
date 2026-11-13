@@ -1,0 +1,14 @@
+import fs from 'fs';
+import { geoNaturalEarth1, geoPath, geoGraticule } from 'd3-geo';
+const d = JSON.parse(fs.readFileSync('data.json'));
+const W=1000,H=520;
+const proj = geoNaturalEarth1().fitExtent([[8,8],[W-8,H-8]],{type:'Sphere'});
+const P=geoPath(proj).digits(1);
+const col={na:'#ff8fb8',sa:'#8fe3c0',br:'#ffd36b',eu:'#c9b6ff',af:'#ffb27a',as:'#b9ec8a',oc:'#ffc2dc'};
+let s=`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}"><defs><linearGradient id="o" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7cc8fa"/><stop offset="1" stop-color="#2f93e0"/></linearGradient><clipPath id="c"><path d="${P({type:'Sphere'})}"/></clipPath></defs>`;
+s+=`<path d="${P({type:'Sphere'})}" fill="url(#o)"/><g clip-path="url(#c)"><path d="${P(geoGraticule().step([30,30])())}" fill="none" stroke="#fff" stroke-opacity=".28" stroke-width="1.4"/>`;
+s+=`<g stroke="#0d3f7a" stroke-width="2.6" stroke-linejoin="round">`;
+for(const g of ['na','sa','eu','af','as','oc','br']) s+=`<path d="${P(d.fills[g])}" fill="${col[g]}"/>`;
+s+=`</g></g><path d="${P({type:'Sphere'})}" fill="none" stroke="#0d3f7a" stroke-width="5"/></svg>`;
+fs.writeFileSync('/workspace/prof-yasmin/map.svg',s);
+console.log(s.length);

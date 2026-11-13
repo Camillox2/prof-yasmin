@@ -221,4 +221,81 @@ document.documentElement.classList.add('js');
       });
     });
   }
+
+  /* ---------- v4: cartinhas que viram ---------- */
+  document.querySelectorAll('.flip').forEach(function (f) {
+    f.addEventListener('click', function () {
+      var on = f.classList.toggle('flipped');
+      f.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+  });
+
+  /* ---------- v4: linha do tempo desenha sozinha ---------- */
+  var tl = document.querySelector('.tl');
+  if (tl) {
+    var tsteps = [].slice.call(tl.querySelectorAll('.tl__step'));
+    var tTick = false;
+    var tlUpdate = function () {
+      tTick = false;
+      var r = tl.getBoundingClientRect();
+      var mark = innerHeight * 0.62;
+      var p = reduce ? 1 : Math.min(1, Math.max(0, (mark - r.top) / r.height));
+      tl.style.setProperty('--tp', p.toFixed(4));
+      tsteps.forEach(function (st) {
+        if (reduce || st.getBoundingClientRect().top + 50 < mark) st.classList.add('on');
+      });
+    };
+    window.addEventListener('scroll', function () { if (!tTick) { tTick = true; requestAnimationFrame(tlUpdate); } }, { passive: true });
+    window.addEventListener('resize', tlUpdate);
+    tlUpdate();
+  }
+
+  /* ---------- v4: relogios de fuso (Brasilia e onde voce mora) ---------- */
+  var clks = [].slice.call(document.querySelectorAll('.clk'));
+  if (clks.length) {
+    var myTz = '';
+    try { myTz = Intl.DateTimeFormat().resolvedOptions().timeZone || ''; } catch (e) {}
+    var BR = 'America/Sao_Paulo';
+    var zparts = function (tz, d) {
+      var f = new Intl.DateTimeFormat('en-GB', { timeZone: tz, year: 'numeric', month: 'numeric', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric', hourCycle: 'h23' });
+      var o = {};
+      f.formatToParts(d).forEach(function (p) { o[p.type] = +p.value; });
+      return o;
+    };
+    var zms = function (tz, d) { var p = zparts(tz, d); return Date.UTC(p.year, p.month - 1, p.day, p.hour, p.minute, p.second); };
+    var validTz = function (tz) { try { new Intl.DateTimeFormat('en', { timeZone: tz }); return !!tz; } catch (e) { return false; } };
+    var you = validTz(myTz) ? myTz : BR;
+    var cityOf = function (tz) { var c = tz.split('/').pop().replace(/_/g, ' '); return c === 'Sao Paulo' ? 'Brasília' : c; };
+    var fmtH = function (m) { var h = Math.floor(m / 60), r = m % 60; return h + 'h' + (r ? (r < 10 ? '0' + r : r) : ''); };
+    var diffEl = document.querySelector('.clk__diff');
+    var clkOn = true;
+    var tickClocks = function () {
+      var now = new Date();
+      clks.forEach(function (c) {
+        var tz = c.getAttribute('data-tz') === 'auto' ? you : BR;
+        var p = zparts(tz, now);
+        var h = p.hour, m = p.minute, s = p.second;
+        c.querySelector('.clk__h').setAttribute('transform', 'rotate(' + ((h % 12) * 30 + m * 0.5) + ' 60 60)');
+        c.querySelector('.clk__m').setAttribute('transform', 'rotate(' + (m * 6 + s * 0.1) + ' 60 60)');
+        c.querySelector('.clk__time').textContent = (h < 10 ? '0' : '') + h + ':' + (m < 10 ? '0' : '') + m;
+        c.classList.toggle('night', h < 6 || h >= 18);
+      });
+      var tzEl = document.querySelector('.clk[data-tz="auto"] .clk__tz');
+      if (tzEl) tzEl.textContent = validTz(myTz) ? cityOf(myTz) : 'seu fuso';
+      if (diffEl) {
+        var d = Math.round((zms(you, now) - zms(BR, now)) / 60000);
+        diffEl.textContent = d === 0 ? 'Mesma hora que Brasília' : 'Você está ' + fmtH(Math.abs(d)) + (d > 0 ? ' à frente' : ' atrás');
+      }
+    };
+    tickClocks();
+    var clkWrap = document.getElementById('clocks');
+    if (clkWrap && 'IntersectionObserver' in window) {
+      new IntersectionObserver(function (es) { clkOn = es[0].isIntersecting; if (clkOn) tickClocks(); }).observe(clkWrap);
+    }
+    setInterval(function () { if (clkOn && !document.hidden) tickClocks(); }, 1000);
+  }
+
+  /* ---------- v4: botao fixo de contato ---------- */
+  var fab = document.querySelector('.fab');
+  if (fab) { setTimeout(function () { fab.classList.add('show'); }, reduce ? 0 : 1400); }
 })();

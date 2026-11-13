@@ -37,6 +37,7 @@
     <symbol id="kid" viewBox="0 0 64 64"><g stroke="#0d3f7a" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"><path d="M8 64c2-11 12-15 24-15s22 4 24 15z" style="fill:var(--shirt,#ff8fb8)"/><circle cx="32" cy="34" r="17" style="fill:var(--skin,#f8d3b0)"/><path d="M15 33c-3-17 12-24 20-22 12 1 18 11 14 23-3-8-8-12-14-12-8 0-17 2-20 11z" style="fill:var(--hair,#5a3a22)"/><circle cx="26" cy="37" r="2" fill="#0d3f7a" stroke="none"/><circle cx="38" cy="37" r="2" fill="#0d3f7a" stroke="none"/><path d="M27 44q5 5 10 0" fill="none"/><circle cx="22" cy="42" r="3" fill="#ff8fb8" stroke="none" opacity=".6"/><circle cx="42" cy="42" r="3" fill="#ff8fb8" stroke="none" opacity=".6"/></g></symbol>
     <symbol id="flag" viewBox="0 0 64 46"><g stroke="#0d3f7a" stroke-width="3" stroke-linejoin="round"><rect x="3" y="3" width="58" height="40" rx="5" fill="#2fb55a"/><path d="M32 8L57 23 32 38 7 23z" fill="#ffd54a"/><circle cx="32" cy="23" r="9" fill="#2b6fd8"/><path d="M24 22q8-3 16 2" fill="none" stroke="#fff" stroke-width="2.5"/></g></symbol>
     <symbol id="plane" viewBox="0 0 64 48"><g stroke="#0d3f7a" stroke-width="3" stroke-linejoin="round"><path d="M4 22L60 4 30 28z" fill="#fff"/><path d="M30 28L60 4 40 44z" fill="#cfeaff"/><path d="M30 28l-2 14 8-9" fill="#fff"/></g></symbol>
+    <symbol id="pennant" viewBox="0 0 44 58"><g stroke="#0d3f7a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="53" rx="8" ry="3" fill="#0d3f7a" opacity=".25" stroke="none"/><path d="M12 53V6" fill="none"/><path d="M12 8c8-5 14 5 24 0v22c-10 5-16-5-24 0z" style="fill:var(--c1,#ff8fb8)"/><path d="M12 19c8-5 14 5 24 0v11c-10 5-16-5-24 0z" style="fill:var(--c2,#fff)" stroke="none"/><path d="M12 8c8-5 14 5 24 0v22c-10 5-16-5-24 0z" fill="none"/></g></symbol>
   </defs>
 </svg>
 
@@ -49,10 +50,11 @@
     </a>
     <button class="nav__toggle" aria-expanded="false" aria-controls="menu" aria-label="Abrir menu"><span></span><span></span><span></span></button>
     <nav id="menu" class="nav__menu" aria-label="Principal">
+      <a href="#sobre">Sobre</a>
       <a href="#aprender">Aprender</a>
       <a href="#online">Online</a>
       <a href="#presencial">Presencial</a>
-      <a href="#comecar">Como começar</a>
+      <a href="#aula">A aula</a>
       <a class="nav__crm" href="https://crm-yasmin-red.vercel.app" target="_blank" rel="noopener">Área da professora</a>
       <a class="btn btn--small" href="https://ig.me/m/yasminmakhare.pedagoga" target="_blank" rel="noopener">Chamar no Insta</a>
     </nav>
@@ -150,8 +152,44 @@
   <span class="torn" style="--next:#fffaf0"></span>
 </section>
 
+<!-- SOBRE -->
+<section class="section paper sobre" id="sobre" style="--next:#fff4cf">
+  <svg class="dd dd1" viewBox="0 0 64 64" aria-hidden="true"><use href="#i-star"/></svg>
+  <svg class="dd dd2" viewBox="0 0 64 64" aria-hidden="true"><use href="#i-heart"/></svg>
+  <div class="wrap sobre__grid">
+    <!-- TODO (DC Foundry): trocar o espaço da foto pela foto real da Prof. Yasmin quando ela enviar (a imagem entra dentro de .nbp__photo no lugar do ícone de câmera). -->
+    <div class="nbp-wrap reveal">
+      <div class="nbp">
+        <span class="nbp__tape"></span>
+        <div class="nbp__rings" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        <div class="nbp__photo" role="img" aria-label="Espaço reservado para a foto da Prof. Yasmin">
+          <svg viewBox="0 0 120 100" aria-hidden="true"><g stroke="#0d3f7a" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 30h20l6-10h40l6 10h20a6 6 0 0 1 6 6v46a6 6 0 0 1-6 6H14a6 6 0 0 1-6-6V36a6 6 0 0 1 6-6z" fill="#ffd9e8"/><circle cx="60" cy="58" r="22" fill="#cfeaff"/><circle cx="60" cy="58" r="12" fill="#fff"/><circle cx="100" cy="40" r="4" fill="#ffd36b"/></g></svg>
+          <b>Foto em breve</b>
+        </div>
+        <p class="nbp__cap">Prof. Yasmin</p>
+      </div>
+      <svg class="nbp__st s1" viewBox="0 0 64 64" aria-hidden="true"><use href="#i-pencil"/></svg>
+      <svg class="nbp__st s2" viewBox="0 0 64 64" aria-hidden="true"><use href="#i-star"/></svg>
+      <svg class="nbp__st s3" viewBox="0 0 64 64" aria-hidden="true"><use href="#i-heart"/></svg>
+    </div>
+    <div class="sobre__copy">
+      <p class="eyebrow reveal">Sobre a Yasmin</p>
+      <h2 class="reveal">Oi, eu sou a <span class="script">Prof. Yasmin</span></h2>
+      <p class="sobre__bio reveal">Alfabetização e Matemática</p>
+      <blockquote class="sobre__quote sticker reveal" style="--sh:var(--pink)">Aprender pode (e deve) ser leve!</blockquote>
+      <ul class="pills pills--left reveal">
+        <li class="sticker"><svg><use href="#i-pencil"/></svg>Alfabetização</li>
+        <li class="sticker" style="--sh:var(--yellow)"><svg><use href="#i-calc"/></svg>Matemática</li>
+        <li class="sticker" style="--sh:var(--mint)"><svg><use href="#i-heart"/></svg>Com afeto</li>
+      </ul>
+      <a class="btn reveal" href="https://ig.me/m/yasminmakhare.pedagoga" target="_blank" rel="noopener">Falar com a Yasmin</a>
+    </div>
+  </div>
+  <span class="torn"></span>
+</section>
+
 <!-- APRENDER -->
-<section class="section paper" id="aprender" style="--next:#3a9be6">
+<section class="section sun" id="aprender" style="--next:#efe6ff">
   <div class="wrap center">
     <p class="eyebrow reveal">Alfabetização, letramento e matemática</p>
     <h2 class="reveal">Letra por letra, <span class="script">número por número</span></h2>
@@ -170,8 +208,90 @@
   <span class="torn"></span>
 </section>
 
+<!-- MATERIAS: cartas que viram -->
+<section class="section lilac" id="materias" style="--next:#1f7fd0">
+  <div class="wrap center">
+    <p class="eyebrow reveal">O que a gente aprende</p>
+    <h2 class="reveal">Escolha uma <span class="script">cartinha</span></h2>
+    <ul class="flips">
+      <li class="reveal">
+        <button class="flip" type="button" aria-pressed="false" style="--c:#ffd9e8;--cb:#ff8fb8;--sh:var(--pink)">
+          <span class="flip__in">
+            <span class="flip__f flip__front">
+              <span class="flip__hint" aria-hidden="true">↻</span>
+              <span class="flip__ill"><svg><use href="#i-books"/></svg><b class="mini mini1">ã</b><b class="mini mini2">ç</b></span>
+              <span class="flip__t">Português</span>
+            </span>
+            <span class="flip__f flip__back">
+              <span class="flip__t">Português</span>
+              <span class="flip__list"><i><svg><use href="#i-books"/></svg>Leitura</i><i><svg><use href="#i-pencil"/></svg>Escrita</i><i><svg><use href="#i-chat"/></svg>Conversa</i></span>
+              <span class="flip__tag">Online até o 5º ano</span>
+              <span class="flip__tag flip__tag--2">Presencial até o 4º ano</span>
+            </span>
+          </span>
+        </button>
+      </li>
+      <li class="reveal">
+        <button class="flip" type="button" aria-pressed="false" style="--c:#cfeaff;--cb:#6cc0f7;--sh:var(--blue)">
+          <span class="flip__in">
+            <span class="flip__f flip__front">
+              <span class="flip__hint" aria-hidden="true">↻</span>
+              <span class="flip__ill"><svg><use href="#i-calc"/></svg><b class="mini mini1">1</b><b class="mini mini2">+</b></span>
+              <span class="flip__t">Matemática</span>
+            </span>
+            <span class="flip__f flip__back">
+              <span class="flip__t">Matemática</span>
+              <span class="flip__list"><i><svg><use href="#i-calc"/></svg>Números</i><i><svg><use href="#i-puzzle"/></svg>Jogos</i><i><svg><use href="#i-bulb"/></svg>Raciocínio</i></span>
+              <span class="flip__tag">Números sem medo</span>
+              <span class="flip__tag flip__tag--2">Presencial até o 4º ano</span>
+            </span>
+          </span>
+        </button>
+      </li>
+      <li class="reveal">
+        <button class="flip" type="button" aria-pressed="false" style="--c:#fff2c9;--cb:#ffd36b;--sh:var(--yellow)">
+          <span class="flip__in">
+            <span class="flip__f flip__front">
+              <span class="flip__hint" aria-hidden="true">↻</span>
+              <span class="flip__ill"><svg><use href="#i-pencil"/></svg><b class="mini mini1">A</b><b class="mini mini2">B</b></span>
+              <span class="flip__t">Alfabetização</span>
+            </span>
+            <span class="flip__f flip__back">
+              <span class="flip__t">Alfabetização</span>
+              <span class="flip__list"><i><svg><use href="#i-pencil"/></svg>Letra por letra</i><i><svg><use href="#i-books"/></svg>Letramento</i><i><svg><use href="#i-puzzle"/></svg>Inclusão</i></span>
+              <span class="flip__tag">Aulas personalizadas</span>
+              <span class="flip__tag flip__tag--2">Com afeto</span>
+            </span>
+          </span>
+        </button>
+      </li>
+      <!-- TODO (DC Foundry): Psicomotricidade ainda NÃO foi confirmada pela Prof. Yasmin. Confirmar com ela antes de publicar em produção; se não oferecer, remover este item (li) e o "Psicomotricidade" do rodapé/README. -->
+      <li class="reveal" data-pending="yasmin-confirmar-psicomotricidade">
+        <button class="flip" type="button" aria-pressed="false" style="--c:#d9f7ea;--cb:#8fe3c0;--sh:var(--mint)">
+          <span class="flip__in">
+            <span class="flip__f flip__front">
+              <span class="flip__hint" aria-hidden="true">↻</span>
+              <span class="flip__ill">
+                <svg viewBox="28 12 112 114" aria-hidden="true"><g stroke="#0d3f7a" stroke-width="3.5" stroke-linejoin="round" font-family="Baloo 2" font-weight="800" font-size="18" text-anchor="middle"><rect x="56" y="92" width="30" height="30" rx="6" fill="#ff8fb8"/><rect x="56" y="60" width="30" height="30" rx="6" fill="#ffd36b"/><rect x="40" y="28" width="30" height="30" rx="6" fill="#6cc0f7"/><rect x="72" y="28" width="30" height="30" rx="6" fill="#c9b6ff"/><g stroke="none" fill="#0d3f7a"><text x="71" y="114">1</text><text x="71" y="82">2</text><text x="55" y="50">3</text><text x="87" y="50">4</text></g><circle cx="116" cy="96" r="16" fill="#ff8fb8"/><path d="M102 90q14 8 28 0M104 104q12-8 24 0" fill="none" stroke="#fff"/></g></svg>
+              </span>
+              <span class="flip__t">Psicomotricidade</span>
+            </span>
+            <span class="flip__f flip__back">
+              <span class="flip__t">Psicomotricidade</span>
+              <span class="flip__list"><i><svg><use href="#i-star"/></svg>Movimento</i><i><svg><use href="#i-puzzle"/></svg>Coordenação</i><i><svg><use href="#i-heart"/></svg>Brincadeira</i></span>
+              <span class="flip__tag">Aprender se mexendo</span>
+            </span>
+          </span>
+        </button>
+      </li>
+    </ul>
+    <p class="flips__hint reveal">Passe o mouse ou toque para virar</p>
+  </div>
+  <span class="torn"></span>
+</section>
+
 <!-- ONLINE -->
-<section class="section world" id="online" style="--next:#ffe3ef">
+<section class="section world" id="online" style="--next:#d9efff">
   <div class="stars-bg" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
   <svg class="cloud wc1" aria-hidden="true"><use href="#i-cloud"/></svg>
   <svg class="cloud wc2" aria-hidden="true"><use href="#i-cloud"/></svg>
@@ -209,8 +329,53 @@
   <span class="torn"></span>
 </section>
 
+<!-- MUNDO: mapa ilustrado + fuso -->
+<section class="section mundo" id="mundo" style="--next:#ffe3ef">
+  <svg class="cloud wc1" aria-hidden="true"><use href="#i-cloud"/></svg>
+  <svg class="cloud wc2" aria-hidden="true"><use href="#i-cloud"/></svg>
+  <div class="wrap center">
+    <p class="eyebrow reveal">Alunos pelo mundo</p>
+    <h2 class="reveal">Onde tem criança, <span class="script">tem Português</span></h2>
+    <!-- TODO (DC Foundry): os pins e os "Olá!" são ILUSTRATIVOS. Quando a Prof. Yasmin informar os países reais dos alunos, trocar a posição dos pins (left/top em %) e remover o selo "ilustrativo". -->
+    <div class="map-wrap reveal">
+      <div class="map watch" role="img" aria-label="Mapa-múndi ilustrado com pins de exemplo e o Brasil em destaque">
+        <img class="map__img" src="/map.svg" alt="" width="1000" height="520" loading="lazy" decoding="async">
+        <svg class="map__arcs" viewBox="0 0 1000 520" preserveAspectRatio="none" aria-hidden="true"><defs><mask id="am0" maskUnits="userSpaceOnUse" x="0" y="0" width="1000" height="520"><path class="arc-m" pathLength="1" style="--i:0" d="M360 297Q315 138 270 140"/></mask><mask id="am1" maskUnits="userSpaceOnUse" x="0" y="0" width="1000" height="520"><path class="arc-m" pathLength="1" style="--i:1" d="M360 297Q442 114 524 109"/></mask><mask id="am2" maskUnits="userSpaceOnUse" x="0" y="0" width="1000" height="520"><path class="arc-m" pathLength="1" style="--i:2" d="M360 297Q552 118 745 172"/></mask><mask id="am3" maskUnits="userSpaceOnUse" x="0" y="0" width="1000" height="520"><path class="arc-m" pathLength="1" style="--i:3" d="M360 297Q458 185 555 260"/></mask><mask id="am4" maskUnits="userSpaceOnUse" x="0" y="0" width="1000" height="520"><path class="arc-m" pathLength="1" style="--i:4" d="M360 297Q608 188 856 338"/></mask></defs><path class="arc" pathLength="1" style="--i:0" mask="url(#am0)" d="M360 297Q315 138 270 140"/><path class="arc" pathLength="1" style="--i:1" mask="url(#am1)" d="M360 297Q442 114 524 109"/><path class="arc" pathLength="1" style="--i:2" mask="url(#am2)" d="M360 297Q552 118 745 172"/><path class="arc" pathLength="1" style="--i:3" mask="url(#am3)" d="M360 297Q458 185 555 260"/><path class="arc" pathLength="1" style="--i:4" mask="url(#am4)" d="M360 297Q608 188 856 338"/></svg>
+      <span class="mp" style="--x:27%;--y:27%;--i:1;--c1:#ff8fb8;--c2:#fff"><b class="mp__ola">Olá!</b><svg class="mp__flag" viewBox="0 0 44 58" aria-hidden="true"><use href="#pennant"/></svg></span>
+      <span class="mp" style="--x:52.4%;--y:21%;--i:2;--c1:#c9b6ff;--c2:#fff"><b class="mp__ola">Olá!</b><svg class="mp__flag" viewBox="0 0 44 58" aria-hidden="true"><use href="#pennant"/></svg></span>
+      <span class="mp" style="--x:74.5%;--y:33%;--i:3;--c1:#8fe3c0;--c2:#ffd36b"><b class="mp__ola">Olá!</b><svg class="mp__flag" viewBox="0 0 44 58" aria-hidden="true"><use href="#pennant"/></svg></span>
+      <span class="mp" style="--x:55.5%;--y:50%;--i:4;--c1:#ffb27a;--c2:#fff"><b class="mp__ola">Olá!</b><svg class="mp__flag" viewBox="0 0 44 58" aria-hidden="true"><use href="#pennant"/></svg></span>
+      <span class="mp" style="--x:85.6%;--y:65%;--i:5;--c1:#6cc0f7;--c2:#fff"><b class="mp__ola">Olá!</b><svg class="mp__flag" viewBox="0 0 44 58" aria-hidden="true"><use href="#pennant"/></svg></span>
+        <span class="mp mp--br" style="--x:36%;--y:57.2%;--i:0"><b class="mp__ola">Casa!</b><span class="mp__home"><svg viewBox="0 0 64 46" aria-hidden="true"><use href="#flag"/></svg></span></span>
+        <span class="map__tag sticker" style="--sh:var(--yellow)"><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#i-pin"/></svg>Pins ilustrativos</span>
+      </div>
+    </div>
+    <div class="clocks reveal" id="clocks">
+      <div class="clk sticker" data-tz="America/Sao_Paulo" style="--sh:var(--yellow)">
+        <div class="clk__face"><svg viewBox="0 0 120 120" aria-hidden="true"><circle class="clk__bg" cx="60" cy="60" r="54"/><g class="clk__ticks"><circle cx="60" cy="14" r="4" fill="#ff8fb8"/><circle cx="106" cy="60" r="4" fill="#6cc0f7"/><circle cx="60" cy="106" r="4" fill="#ffd36b"/><circle cx="14" cy="60" r="4" fill="#8fe3c0"/></g><g class="clk__eyes"><circle cx="46" cy="48" r="4"/><circle cx="74" cy="48" r="4"/><path d="M50 74q10 9 20 0" fill="none"/></g><line class="clk__h" x1="60" y1="60" x2="60" y2="36"/><line class="clk__m" x1="60" y1="60" x2="60" y2="24"/><circle cx="60" cy="60" r="5" fill="#e8478a" stroke="#0d3f7a" stroke-width="3"/></svg><i class="clk__sun" aria-hidden="true"></i></div>
+        <b class="clk__city">Brasília</b>
+        <span class="clk__time">--:--</span>
+        <small class="clk__tz">Brasil</small>
+      </div>
+      <div class="clk__gap">
+        <svg viewBox="0 0 64 64" aria-hidden="true"><use href="#i-globe"/></svg>
+        <span class="clk__diff sticker" style="--sh:var(--mint)">Mesma hora</span>
+      </div>
+      <div class="clk sticker" data-tz="auto" style="--sh:var(--pink)">
+        <div class="clk__face"><svg viewBox="0 0 120 120" aria-hidden="true"><circle class="clk__bg" cx="60" cy="60" r="54"/><g class="clk__ticks"><circle cx="60" cy="14" r="4" fill="#ff8fb8"/><circle cx="106" cy="60" r="4" fill="#6cc0f7"/><circle cx="60" cy="106" r="4" fill="#ffd36b"/><circle cx="14" cy="60" r="4" fill="#8fe3c0"/></g><g class="clk__eyes"><circle cx="46" cy="48" r="4"/><circle cx="74" cy="48" r="4"/><path d="M50 74q10 9 20 0" fill="none"/></g><line class="clk__h" x1="60" y1="60" x2="60" y2="36"/><line class="clk__m" x1="60" y1="60" x2="60" y2="24"/><circle cx="60" cy="60" r="5" fill="#e8478a" stroke="#0d3f7a" stroke-width="3"/></svg><i class="clk__sun" aria-hidden="true"></i></div>
+        <b class="clk__city">Onde você mora</b>
+        <span class="clk__time">--:--</span>
+        <small class="clk__tz">seu fuso</small>
+      </div>
+    </div>
+    <!-- TODO (DC Foundry): horários das aulas ainda a definir pela Prof. Yasmin. -->
+    <p class="clk__note sticker reveal" style="--sh:var(--blue)"><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#i-clock"/></svg>Horários das aulas: a definir</p>
+  </div>
+  <span class="torn"></span>
+</section>
+
 <!-- PRESENCIAL -->
-<section class="section pinky" id="presencial" style="--next:#fffaf0">
+<section class="section pinky" id="presencial" style="--next:#d9f7ea">
   <div class="wrap center">
     <p class="eyebrow reveal">Aulas presenciais</p>
     <h2 class="reveal">Pertinho de você, <span class="script">até o 4º ano</span></h2>
@@ -231,7 +396,7 @@
 </section>
 
 <!-- COMO COMECAR -->
-<section class="section paper dots" id="comecar" style="--next:#d9efff">
+<section class="section mint" id="comecar" style="--next:#fffaf0">
   <div class="wrap center">
     <p class="eyebrow reveal">Como começar</p>
     <h2 class="reveal">Três passos <span class="script">e pronto</span></h2>
@@ -242,6 +407,138 @@
     </ol>
   </div>
   <div class="ribbon-band" aria-hidden="true"><div class="ribbon-track"><span>Alfabetização ✦ Letramento ✦ Matemática lúdica ✦ Inclusão ✦ Aprender com afeto ✦ </span><span>Alfabetização ✦ Letramento ✦ Matemática lúdica ✦ Inclusão ✦ Aprender com afeto ✦ </span></div></div>
+  <span class="torn"></span>
+</section>
+
+<!-- COMO E UMA AULA -->
+<section class="section aula" id="aula" style="--next:#f7dfb4">
+  <div class="wrap center">
+    <p class="eyebrow reveal">Como é uma aula</p>
+    <h2 class="reveal">Um passo de <span class="script">cada vez</span></h2>
+    <!-- TODO (DC Foundry): tempos de cada etapa e duração da aula ainda a definir pela Prof. Yasmin. -->
+    <ol class="tl" aria-label="Etapas de uma aula">
+      <span class="tl__line" aria-hidden="true"><i class="tl__fill"></i></span>
+      <span class="tl__tip" aria-hidden="true"><svg viewBox="0 0 64 64"><use href="#i-pencil"/></svg></span>
+
+      <li class="tl__step" style="--sh:var(--pink)">
+        <span class="tl__n">1</span>
+        <div class="tl__card sticker">
+          <svg class="ill ill-ola" viewBox="0 0 160 160" aria-hidden="true">
+            <defs><clipPath id="cl-ola"><circle cx="80" cy="84" r="68"/></clipPath></defs>
+            <circle cx="80" cy="84" r="68" fill="#ffd9e8"/>
+            <g clip-path="url(#cl-ola)"><use href="#kid" x="22" y="48" width="112" height="112" style="--skin:#f8d3b0;--hair:#5a3a22;--shirt:#6cc0f7"/></g>
+            <circle cx="80" cy="84" r="68" fill="none" stroke="#0d3f7a" stroke-width="4"/>
+            <g class="hand-w">
+              <g stroke="#0d3f7a" stroke-width="13" stroke-linecap="round"><path d="M122 84V68M131 82V62M140 84V66M148 90V76M116 100l-9-9"/></g>
+              <g stroke="#f8d3b0" stroke-width="6" stroke-linecap="round"><path d="M122 84V68M131 82V62M140 84V66M148 90V76M116 100l-9-9"/></g>
+              <rect x="115" y="82" width="38" height="34" rx="15" fill="#f8d3b0" stroke="#0d3f7a" stroke-width="3.5"/>
+              <path d="M121 84h26" stroke="#f8d3b0" stroke-width="6" stroke-linecap="round"/>
+            </g>
+            <g class="bub"><path d="M8 12h64a10 10 0 0 1 10 10v16a10 10 0 0 1-10 10H40L26 62l2-14H18A10 10 0 0 1 8 38V22A10 10 0 0 1 18 12z" fill="#fff" stroke="#0d3f7a" stroke-width="3.5" stroke-linejoin="round"/><text x="45" y="39" text-anchor="middle" font-family="Baloo 2" font-weight="800" font-size="22" fill="#e8478a">Olá!</text></g>
+          </svg>
+          <div class="tl__txt"><h3>Olá!</h3><span class="tl__time"><svg viewBox="0 0 64 64"><use href="#i-clock"/></svg>a definir</span></div>
+        </div>
+      </li>
+
+      <li class="tl__step" style="--sh:var(--blue)">
+        <span class="tl__n">2</span>
+        <div class="tl__card sticker">
+          <svg class="ill ill-book" viewBox="0 0 160 160" aria-hidden="true">
+            <circle cx="80" cy="84" r="68" fill="#cfeaff" stroke="#0d3f7a" stroke-width="4"/>
+            <g stroke="#0d3f7a" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 62v62q30-12 60 4 30-16 60-4V62" fill="#ff8fb8"/>
+              <path d="M26 56q27-8 54 6v62q-27-12-54-4z" fill="#fff"/>
+              <path d="M134 56q-27-8-54 6v62q27-12 54-4z" fill="#fffdf9"/>
+              <path d="M80 62v62" fill="none"/>
+              <path d="M92 82h34M92 94h34M92 106h24" fill="none" stroke="#6cc0f7" stroke-width="3"/>
+              <path d="M106 54v28l7-6 7 6V54z" fill="#ffd36b"/>
+              <g class="pgl" stroke="none" font-family="Baloo 2" font-weight="800" font-size="22" fill="#e8478a"><text x="34" y="92" transform="rotate(-6 34 92)">A</text><text x="52" y="96" fill="#0d3f7a" transform="rotate(-6 52 96)">B</text></g>
+            </g>
+            <g class="fl1"><use href="#i-star" x="30" y="22" width="22" height="22"/></g>
+            <g class="fl2"><rect x="70" y="14" width="26" height="26" rx="7" fill="#c9b6ff" stroke="#0d3f7a" stroke-width="3"/><text x="83" y="34" text-anchor="middle" font-family="Baloo 2" font-weight="800" font-size="18" fill="#0d3f7a">ã</text></g>
+            <g class="fl3"><use href="#i-star" x="118" y="26" width="18" height="18"/></g>
+          </svg>
+          <div class="tl__txt"><h3>Leitura</h3><span class="tl__time"><svg viewBox="0 0 64 64"><use href="#i-clock"/></svg>a definir</span></div>
+        </div>
+      </li>
+
+      <li class="tl__step" style="--sh:var(--mint)">
+        <span class="tl__n">3</span>
+        <div class="tl__card sticker">
+          <svg class="ill ill-game" viewBox="0 0 160 160" aria-hidden="true">
+            <circle cx="80" cy="84" r="68" fill="#d9f7ea" stroke="#0d3f7a" stroke-width="4"/>
+            <g stroke="#0d3f7a" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+              <g class="dice"><g transform="rotate(-14 56 96)"><rect x="30" y="70" width="52" height="52" rx="11" fill="#fff"/><g fill="#e8478a" stroke="none"><circle cx="44" cy="84" r="4.6"/><circle cx="68" cy="84" r="4.6"/><circle cx="56" cy="96" r="4.6"/><circle cx="44" cy="108" r="4.6"/><circle cx="68" cy="108" r="4.6"/></g></g></g>
+              <rect x="90" y="96" width="40" height="40" rx="9" fill="#ffd36b"/>
+              <g class="blk2"><rect x="96" y="56" width="36" height="36" rx="9" fill="#ff8fb8" transform="rotate(9 114 74)"/></g>
+              <g stroke="none" font-family="Baloo 2" font-weight="800" font-size="26" text-anchor="middle" fill="#0d3f7a"><text x="110" y="125">A</text><text x="114" y="84" transform="rotate(9 114 74)">2</text></g>
+            </g>
+            <g class="fl1"><use href="#i-star" x="40" y="30" width="24" height="24"/></g>
+            <g class="fl3"><use href="#i-puzzle" x="76" y="26" width="28" height="28"/></g>
+          </svg>
+          <div class="tl__txt"><h3>Jogo</h3><span class="tl__time"><svg viewBox="0 0 64 64"><use href="#i-clock"/></svg>a definir</span></div>
+        </div>
+      </li>
+
+      <li class="tl__step" style="--sh:var(--yellow)">
+        <span class="tl__n">4</span>
+        <div class="tl__card sticker">
+          <svg class="ill ill-write" viewBox="0 0 160 160" aria-hidden="true">
+            <circle cx="80" cy="84" r="68" fill="#fff2c9" stroke="#0d3f7a" stroke-width="4"/>
+            <g stroke="#0d3f7a" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+              <g transform="rotate(-5 80 84)">
+                <rect x="38" y="30" width="84" height="108" rx="8" fill="#fff"/>
+                <path d="M38 54h84M38 76h84M38 98h84M38 120h84" stroke="#cfeaff" stroke-width="3" fill="none"/>
+                <g fill="#6cc0f7" stroke-width="3"><circle cx="38" cy="44" r="4"/><circle cx="38" cy="64" r="4"/><circle cx="38" cy="84" r="4"/><circle cx="38" cy="104" r="4"/><circle cx="38" cy="124" r="4"/></g>
+                <text x="52" y="52" stroke="none" font-family="Caveat" font-weight="700" font-size="28" fill="#0d3f7a">ABC</text>
+                <path class="scrib" pathLength="1" d="M50 90q8-12 16 0t16 0t16 0t12 0" stroke="#e8478a" stroke-width="4" fill="none"/>
+                <path class="scrib s2" pathLength="1" d="M50 112q8-12 16 0t16 0" stroke="#6cc0f7" stroke-width="4" fill="none"/>
+              </g>
+              <g class="pen"><g transform="translate(108 72) rotate(40)"><rect x="-6" y="-38" width="12" height="42" rx="2" fill="#ffd36b"/><path d="M-6 4h12l-6 15z" fill="#ffe9b0"/><path d="M-2.4 13.5h4.8L0 19z" fill="#0d3f7a" stroke="none"/><rect x="-6" y="-47" width="12" height="9" rx="3" fill="#ff8fb8"/></g></g>
+            </g>
+          </svg>
+          <div class="tl__txt"><h3>Escrita</h3><span class="tl__time"><svg viewBox="0 0 64 64"><use href="#i-clock"/></svg>a definir</span></div>
+        </div>
+      </li>
+
+      <li class="tl__step" style="--sh:var(--lilac)">
+        <span class="tl__n">5</span>
+        <div class="tl__card sticker">
+          <svg class="ill ill-bye" viewBox="0 0 160 160" aria-hidden="true">
+            <circle cx="80" cy="84" r="68" fill="#e6dcff" stroke="#0d3f7a" stroke-width="4"/>
+            <g stroke="#0d3f7a" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M62 112l-12 32 17-8 6 12 10-32z" fill="#ff8fb8"/><path d="M98 112l12 32-17-8-6 12-10-32z" fill="#6cc0f7"/>
+              <g class="medal"><polygon points="80,22 94,58 134,60 103,84 114,124 80,102 46,124 57,84 26,60 66,58" fill="#ffd36b"/>
+              <g fill="#0d3f7a" stroke="none"><circle cx="69" cy="76" r="4"/><circle cx="91" cy="76" r="4"/></g><path d="M69 88q11 10 22 0" fill="none"/>
+              <g fill="#ff8fb8" stroke="none" opacity=".7"><circle cx="60" cy="86" r="5"/><circle cx="100" cy="86" r="5"/></g></g>
+            </g>
+            <g class="fl1"><use href="#i-heart" x="14" y="92" width="26" height="26"/></g>
+            <g class="fl2"><use href="#i-heart" x="122" y="88" width="26" height="26"/></g>
+            <g class="fl3"><use href="#i-star" x="116" y="20" width="18" height="18"/></g>
+            <g class="bub"><path d="M8 20h44a8 8 0 0 1 8 8v8a8 8 0 0 1-8 8H30L20 54l1-10H16a8 8 0 0 1-8-8v-8a8 8 0 0 1 8-8z" fill="#fff" stroke="#0d3f7a" stroke-width="3.5" stroke-linejoin="round" transform="translate(-2 -4)"/><text x="30" y="36" text-anchor="middle" font-family="Baloo 2" font-weight="800" font-size="16" fill="#e8478a">Tchau!</text></g>
+          </svg>
+          <div class="tl__txt"><h3>Tchau!</h3><span class="tl__time"><svg viewBox="0 0 64 64"><use href="#i-clock"/></svg>a definir</span></div>
+        </div>
+      </li>
+    </ol>
+  </div>
+  <span class="torn"></span>
+</section>
+
+<!-- DEPOIMENTOS -->
+<section class="section mural" id="depoimentos" style="--next:#d9efff">
+  <div class="wrap center">
+    <p class="eyebrow reveal">Depoimentos</p>
+    <h2 class="reveal">Recadinhos das <span class="script">famílias</span></h2>
+    <!-- TODO (DC Foundry): estes post-its são só espaços reservados. Substituir pelos relatos reais, com autorização das famílias. Não inventar depoimentos. -->
+    <div class="posts">
+      <figure class="postit reveal" style="--pc:#fff08a;--pr:-3deg;--pin:#e8478a"><span class="pin"></span><svg class="postit__ic" viewBox="0 0 64 64" aria-hidden="true"><use href="#i-heart"/></svg><blockquote>Espaço reservado, relatos reais serão adicionados.</blockquote><figcaption>Família (exemplo)</figcaption></figure>
+      <figure class="postit reveal" style="--pc:#ffc4dc;--pr:2.5deg;--pin:#2f93e0"><span class="pin"></span><svg class="postit__ic" viewBox="0 0 64 64" aria-hidden="true"><use href="#i-star"/></svg><blockquote>Espaço reservado, relatos reais serão adicionados.</blockquote><figcaption>Família (exemplo)</figcaption></figure>
+      <figure class="postit reveal" style="--pc:#bfe6ff;--pr:-2deg;--pin:#ffb347"><span class="pin"></span><svg class="postit__ic" viewBox="0 0 64 64" aria-hidden="true"><use href="#i-chat"/></svg><blockquote>Espaço reservado, relatos reais serão adicionados.</blockquote><figcaption>Família (exemplo)</figcaption></figure>
+      <figure class="postit reveal" style="--pc:#c4f2dc;--pr:3deg;--pin:#c9b6ff"><span class="pin"></span><svg class="postit__ic" viewBox="0 0 64 64" aria-hidden="true"><use href="#i-pencil"/></svg><blockquote>Espaço reservado, relatos reais serão adicionados.</blockquote><figcaption>Família (exemplo)</figcaption></figure>
+    </div>
+    <p class="mural__note reveal">Depoimentos ilustrativos: serão trocados por relatos reais.</p>
+  </div>
   <span class="torn"></span>
 </section>
 
@@ -286,12 +583,41 @@
 </main>
 
 <footer class="footer">
-  <div class="wrap footer__inner">
-    <p class="footer__brand">Prof. Yasmin <span>| Alfabetização e Matemática</span></p>
-    <a href="https://crm-yasmin-red.vercel.app" target="_blank" rel="noopener">Área da professora</a>
-    <p class="credit">Site por <a href="https://dcfoundrydigital.com" target="_blank" rel="noopener">DC Foundry Digital</a></p>
+  <span class="footer__rainbow" aria-hidden="true"></span>
+  <span class="fdoodle fd1" aria-hidden="true">ABC</span><span class="fdoodle fd2" aria-hidden="true">1+2</span><span class="fdoodle fd3" aria-hidden="true">✦</span><span class="fdoodle fd4" aria-hidden="true">♡</span>
+  <div class="wrap footer__grid">
+    <div class="footer__col footer__brandcol">
+      <a class="brand brand--foot" href="#inicio" aria-label="Voltar ao início">
+        <span class="logo" aria-hidden="true"><span class="logo__prof">Prof. <i>♡</i></span><span class="logo__name">Yasmin</span></span>
+        <span class="brand__text">Prof. Yasmin</span>
+      </a>
+      <p class="footer__motto">Aprender pode (e deve) ser leve!</p>
+      <p class="footer__sub">Alfabetização e Matemática</p>
+    </div>
+    <nav class="footer__col" aria-label="Rodapé">
+      <h3>Navegue</h3>
+      <a href="#sobre">Sobre a Yasmin</a><a href="#aprender">Aprender</a><a href="#materias">Cartinhas</a><a href="#online">Online</a><a href="#presencial">Presencial</a><a href="#aula">Como é uma aula</a><a href="#duvidas">Dúvidas</a>
+    </nav>
+    <div class="footer__col">
+      <h3>Aulas</h3>
+      <span><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#i-laptop"/></svg>Online, até o 5º ano</span>
+      <span><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#i-pin"/></svg>Presencial, até o 4º ano</span>
+      <span><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#i-globe"/></svg>Para quem mora fora do Brasil</span>
+    </div>
+    <div class="footer__col">
+      <h3>Contato</h3>
+      <a class="btn btn--small btn--white" href="https://ig.me/m/yasminmakhare.pedagoga" target="_blank" rel="noopener">Chamar no Instagram</a>
+      <span class="footer__handle">@yasminmakhare.pedagoga</span>
+      <a href="https://crm-yasmin-red.vercel.app" target="_blank" rel="noopener">Área da professora</a>
+    </div>
   </div>
+  <div class="wrap"><p class="credit">Site por <a href="https://dcfoundrydigital.com" target="_blank" rel="noopener">DC Foundry Digital</a></p></div>
 </footer>
+
+<a class="fab" href="https://ig.me/m/yasminmakhare.pedagoga" target="_blank" rel="noopener" aria-label="Chamar no Instagram">
+  <svg viewBox="0 0 32 32" aria-hidden="true"><rect x="4" y="4" width="24" height="24" rx="8" fill="none" stroke="#fff" stroke-width="3"/><circle cx="16" cy="16" r="5.5" fill="none" stroke="#fff" stroke-width="3"/><circle cx="23" cy="9" r="1.8" fill="#fff"/></svg>
+  <span>Chamar no Insta</span>
+</a>
 
 <script src="/globe.js" defer></script>
 <script src="/main.js" defer></script>
