@@ -254,3 +254,39 @@ a{color:var(--navy)}
   *,*::before,*::after{animation:none!important;transition:none!important}
   .js .reveal{opacity:1;transform:none}
 }
+
+/* ===== v3: animacoes extras ===== */
+.progress{position:fixed;top:0;left:0;right:0;height:6px;z-index:70;pointer-events:none}
+.progress i{display:block;height:100%;width:100%;transform-origin:left;transform:scaleX(var(--p,0));background:linear-gradient(90deg,var(--pink),var(--yellow),var(--mint),var(--blue),var(--lilac))}
+.enter{animation:enter .9s cubic-bezier(.3,1.4,.5,1) both;animation-delay:var(--d,0s)}
+@keyframes enter{from{opacity:0;transform:translateY(40px) scale(.96)}to{opacity:1;transform:none}}
+.enter-scene .notebook{animation:notebookIn 1s cubic-bezier(.3,1.4,.5,1) .3s both,sway 7s ease-in-out 1.3s infinite}
+.enter-scene .owl{animation:owlIn .9s cubic-bezier(.3,1.6,.5,1) .7s both,owl 4s ease-in-out 1.6s infinite}
+.enter-scene .chip-ill{animation:chipIn .7s cubic-bezier(.3,1.8,.5,1) var(--cd,.9s) both,float 5s ease-in-out calc(var(--cd,.9s) + .7s) infinite}
+.enter-scene .ci1{--cd:.9s}.enter-scene .ci2{--cd:1.05s}.enter-scene .ci3{--cd:1.2s}.enter-scene .ci4{--cd:1.35s}
+.enter-scene .rainbow{animation:rainbowIn 1.2s ease-out .1s both,float 7s ease-in-out 1.3s infinite}
+@keyframes notebookIn{from{opacity:0;transform:translateY(60px) rotate(18deg)}to{opacity:1;transform:rotate(5deg)}}
+@keyframes owlIn{from{opacity:0;transform:translateY(120px) scale(.6)}to{opacity:1;transform:none}}
+@keyframes chipIn{from{opacity:0;scale:.2;rotate:-40deg}to{opacity:1;scale:1;rotate:0deg}}
+@keyframes rainbowIn{from{opacity:0;clip-path:inset(100% 0 0 0)}to{opacity:.95;clip-path:inset(0)}}
+/* tiles pop in one by one */
+.tiles.reveal.in .t{animation:tile 3.2s ease-in-out infinite,tileIn .6s cubic-bezier(.3,1.8,.5,1) backwards;animation-delay:var(--td,0s),var(--td,0s)}
+.js .tiles.reveal:not(.in) .t{opacity:0}
+@keyframes tileIn{from{opacity:0;scale:.2;rotate:-30deg}to{opacity:1;scale:1;rotate:0deg}}
+/* steps connector draws itself */
+@media(min-width:800px){
+  .steps::before{transform-origin:left;transition:transform 1.2s ease .3s;}
+  .js .steps.reveal:not(.in)::before{transform:scaleX(0)}
+}
+.steps.reveal{opacity:1;transform:none}
+.js .steps.reveal li{opacity:0;transform:translateY(30px) scale(.9);transition:opacity .6s ease,transform .7s cubic-bezier(.3,1.6,.5,1)}
+.js .steps.reveal.in li{opacity:1;transform:none}
+.js .steps.reveal.in li:nth-child(2){transition-delay:.25s}.js .steps.reveal.in li:nth-child(3){transition-delay:.5s}
+/* sticker icon idle wiggle */
+.ic svg,.pills svg{animation:iconBob 4s ease-in-out infinite}
+.rows li:nth-child(2) .ic svg{animation-delay:-1.3s}.rows li:nth-child(3) .ic svg{animation-delay:-2.6s}
+@keyframes iconBob{0%,100%{transform:rotate(-4deg)}50%{transform:rotate(5deg) translateY(-2px)}}
+/* confetti */
+.confetti{position:fixed;width:10px;height:14px;border-radius:3px;pointer-events:none;z-index:80;animation:confetti 1s cubic-bezier(.2,.8,.3,1) forwards}
+@keyframes confetti{0%{transform:translate(0,0) rotate(0);opacity:1}100%{transform:translate(var(--x),var(--y)) rotate(var(--r));opacity:0}}
+@media (prefers-reduced-motion:reduce){.enter,.enter-scene *{opacity:1!important;scale:1!important;rotate:0deg}.js .steps.reveal li{opacity:1;transform:none}.js .tiles.reveal:not(.in) .t{opacity:1}.confetti{display:none}}

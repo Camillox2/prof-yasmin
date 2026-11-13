@@ -44,7 +44,7 @@
         <path d="M46 112q-26 36 4 80 20-24 14-74z" fill="#6cc0f7"/><path d="M154 112q26 36-4 80-20-24-14-74z" fill="#6cc0f7"/>
         <circle cx="76" cy="94" r="25" fill="#fff"/><circle cx="124" cy="94" r="25" fill="#fff"/>
         <path d="M100 94h0" />
-        <g class="pupils"><circle cx="79" cy="97" r="11" fill="#0d3f7a" stroke="none"/><circle cx="121" cy="97" r="11" fill="#0d3f7a" stroke="none"/><circle cx="83" cy="92" r="4" fill="#fff" stroke="none"/><circle cx="125" cy="92" r="4" fill="#fff" stroke="none"/></g>
+        <g class="pupils" style="translate:var(--ex,0px) var(--ey,0px);transition:translate .12s ease-out"><circle cx="79" cy="97" r="11" fill="#0d3f7a" stroke="none"/><circle cx="121" cy="97" r="11" fill="#0d3f7a" stroke="none"/><circle cx="83" cy="92" r="4" fill="#fff" stroke="none"/><circle cx="125" cy="92" r="4" fill="#fff" stroke="none"/></g>
         <path d="M91 114l9 16 9-16z" fill="#ffd36b"/>
         <circle cx="52" cy="122" r="7" fill="#ff6fa5" stroke="none" opacity=".6"/><circle cx="148" cy="122" r="7" fill="#ff6fa5" stroke="none" opacity=".6"/>
       </g>
@@ -52,6 +52,7 @@
   </defs>
 </svg>
 
+<div class="progress" aria-hidden="true"><i></i></div>
 <header class="nav" id="topo">
   <div class="nav__inner">
     <a class="brand" href="#inicio" aria-label="Prof. Yasmin, início">
@@ -84,16 +85,16 @@
   </div>
   <div class="wrap hero__grid">
     <div class="hero__copy">
-      <p class="eyebrow">🌸 Professora particular</p>
-      <h1>Aprender pode <span class="hl">(e deve)</span> ser <span class="leve">leve!</span></h1>
-      <p class="motto">Aulas personalizadas e com afeto</p>
-      <div class="cta-row">
+      <p class="eyebrow enter" style="--d:.05s">🌸 Professora particular</p>
+      <h1 class="enter" style="--d:.2s">Aprender pode <span class="hl">(e deve)</span> ser <span class="leve">leve!</span></h1>
+      <p class="motto enter" style="--d:.45s">Aulas personalizadas e com afeto</p>
+      <div class="cta-row enter" style="--d:.65s">
         <a class="btn btn--lg" href="https://ig.me/m/yasminmakhare.pedagoga" target="_blank" rel="noopener">Chamar no Instagram <span aria-hidden="true">→</span></a>
         <a class="link" href="#aprender">Ver aulas</a>
       </div>
     </div>
     <!-- TODO (DC Foundry): se a Prof. Yasmin enviar uma foto, ela pode entrar no caderno desta cena no lugar da coruja. -->
-    <div class="scene" aria-hidden="true">
+    <div class="scene enter-scene" aria-hidden="true">
       <svg class="rainbow" viewBox="0 0 300 160"><g fill="none" stroke-width="18" stroke-linecap="round"><path d="M20 150a130 130 0 0 1 260 0" stroke="#ff8fb8"/><path d="M46 150a104 104 0 0 1 208 0" stroke="#ffd36b"/><path d="M72 150a78 78 0 0 1 156 0" stroke="#8fe3c0"/><path d="M98 150a52 52 0 0 1 104 0" stroke="#6cc0f7"/></g></svg>
       <div class="notebook" data-speed="-0.04">
         <div class="notebook__tape"></div>
@@ -187,7 +188,7 @@
   <div class="wrap center">
     <p class="eyebrow reveal">Como começar</p>
     <h2 class="reveal">Três passos <span class="script">e pronto</span></h2>
-    <ol class="steps">
+    <ol class="steps reveal">
       <li class="reveal"><span class="sticker ic ic--lg" style="--sh:#ff8fb8"><svg><use href="#i-chat"/></svg><em>1</em></span><b>Chame no Insta</b></li>
       <li class="reveal"><span class="sticker ic ic--lg" style="--sh:#6cc0f7"><svg><use href="#i-heart"/></svg><em>2</em></span><b>Conte sobre a criança</b></li>
       <li class="reveal"><span class="sticker ic ic--lg" style="--sh:#ffd36b"><svg><use href="#i-pencil"/></svg><em>3</em></span><b>Comecem as aulas</b></li>

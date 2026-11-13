@@ -33,4 +33,47 @@ document.documentElement.classList.add('js');
       });
     }, { passive: true });
   }
+
+  // barra de progresso
+  var bar = document.querySelector('.progress i');
+  function prog() {
+    var max = document.documentElement.scrollHeight - innerHeight;
+    bar.style.setProperty('--p', max > 0 ? (scrollY / max).toFixed(3) : 0);
+  }
+  window.addEventListener('scroll', prog, { passive: true }); prog();
+
+  // delay escalonado dos tiles
+  document.querySelectorAll('.tiles .t').forEach(function (t, i) { t.style.setProperty('--td', (i * 0.07).toFixed(2) + 's'); });
+
+  if (!reduce) {
+    // olhos da coruja seguem o mouse
+    var owls = document.querySelectorAll('.owl');
+    window.addEventListener('pointermove', function (e) {
+      owls.forEach(function (o) {
+        var r = o.getBoundingClientRect();
+        var dx = e.clientX - (r.left + r.width / 2), dy = e.clientY - (r.top + r.height * 0.42);
+        var d = Math.max(1, Math.hypot(dx, dy)), k = Math.min(1, d / 300);
+        o.style.setProperty('--ex', (dx / d * 6 * k).toFixed(1) + 'px');
+        o.style.setProperty('--ey', (dy / d * 5 * k).toFixed(1) + 'px');
+      });
+    }, { passive: true });
+
+    // confete nos botoes principais
+    var colors = ['#ff8fb8', '#ffd36b', '#8fe3c0', '#6cc0f7', '#c9b6ff'];
+    document.querySelectorAll('.btn').forEach(function (b) {
+      b.addEventListener('pointerenter', function () {
+        var r = b.getBoundingClientRect();
+        for (var i = 0; i < 14; i++) {
+          var s = document.createElement('i'); s.className = 'confetti';
+          s.style.left = (r.left + r.width / 2) + 'px'; s.style.top = (r.top + r.height / 2) + 'px';
+          s.style.background = colors[i % colors.length];
+          var a = Math.random() * Math.PI * 2, v = 60 + Math.random() * 70;
+          s.style.setProperty('--x', Math.cos(a) * v + 'px'); s.style.setProperty('--y', (Math.sin(a) * v - 30) + 'px');
+          s.style.setProperty('--r', (Math.random() * 720 - 360) + 'deg');
+          document.body.appendChild(s);
+          setTimeout(function (el) { el.remove(); }.bind(null, s), 1000);
+        }
+      });
+    });
+  }
 })();
