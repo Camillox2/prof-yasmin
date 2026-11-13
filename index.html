@@ -296,9 +296,9 @@
   <svg class="cloud wc1" aria-hidden="true"><use href="#i-cloud"/></svg>
   <svg class="cloud wc2" aria-hidden="true"><use href="#i-cloud"/></svg>
   <div class="wrap world__grid">
-    <div class="globe-wrap reveal" aria-hidden="true">
+    <div class="globe-wrap reveal lite" aria-hidden="true">
       <div class="globe-halo"></div>
-      <svg id="globe" class="globe-svg" viewBox="0 0 400 400"></svg>
+      <canvas id="globe" class="globe-svg" width="400" height="400"></canvas>
       <div class="orbit o1">
         <span class="ob a0"><span class="ob__in"><span class="kid sticker" style="--sh:#ffd36b"><svg style="--skin:#f8d3b0;--hair:#5a3a22;--shirt:#ff8fb8"><use href="#kid"/></svg></span></span></span>
         <span class="ob a1"><span class="ob__in"><span class="flag sticker" style="--sh:#8fe3c0"><svg><use href="#flag"/></svg></span></span></span>
@@ -337,10 +337,10 @@
     <p class="eyebrow reveal">Alunos pelo mundo</p>
     <h2 class="reveal">Onde tem criança, <span class="script">tem Português</span></h2>
     <!-- TODO (DC Foundry): os pins e os "Olá!" são ILUSTRATIVOS. Quando a Prof. Yasmin informar os países reais dos alunos, trocar a posição dos pins (left/top em %) e remover o selo "ilustrativo". -->
-    <div class="map-wrap reveal">
+    <div class="map-wrap reveal lite">
       <div class="map watch" role="img" aria-label="Mapa-múndi ilustrado com pins de exemplo e o Brasil em destaque">
         <img class="map__img" src="/map.svg" alt="" width="1000" height="520" loading="lazy" decoding="async">
-        <svg class="map__arcs" viewBox="0 0 1000 520" preserveAspectRatio="none" aria-hidden="true"><defs><mask id="am0" maskUnits="userSpaceOnUse" x="0" y="0" width="1000" height="520"><path class="arc-m" pathLength="1" style="--i:0" d="M360 297Q315 138 270 140"/></mask><mask id="am1" maskUnits="userSpaceOnUse" x="0" y="0" width="1000" height="520"><path class="arc-m" pathLength="1" style="--i:1" d="M360 297Q442 114 524 109"/></mask><mask id="am2" maskUnits="userSpaceOnUse" x="0" y="0" width="1000" height="520"><path class="arc-m" pathLength="1" style="--i:2" d="M360 297Q552 118 745 172"/></mask><mask id="am3" maskUnits="userSpaceOnUse" x="0" y="0" width="1000" height="520"><path class="arc-m" pathLength="1" style="--i:3" d="M360 297Q458 185 555 260"/></mask><mask id="am4" maskUnits="userSpaceOnUse" x="0" y="0" width="1000" height="520"><path class="arc-m" pathLength="1" style="--i:4" d="M360 297Q608 188 856 338"/></mask></defs><path class="arc" pathLength="1" style="--i:0" mask="url(#am0)" d="M360 297Q315 138 270 140"/><path class="arc" pathLength="1" style="--i:1" mask="url(#am1)" d="M360 297Q442 114 524 109"/><path class="arc" pathLength="1" style="--i:2" mask="url(#am2)" d="M360 297Q552 118 745 172"/><path class="arc" pathLength="1" style="--i:3" mask="url(#am3)" d="M360 297Q458 185 555 260"/><path class="arc" pathLength="1" style="--i:4" mask="url(#am4)" d="M360 297Q608 188 856 338"/></svg>
+        <svg class="map__arcs" viewBox="0 0 1000 520" preserveAspectRatio="none" aria-hidden="true"><path class="arc" d="M360 297Q315 138 270 140"/><path class="arc" d="M360 297Q442 114 524 109"/><path class="arc" d="M360 297Q552 118 745 172"/><path class="arc" d="M360 297Q458 185 555 260"/><path class="arc" d="M360 297Q608 188 856 338"/></svg>
       <span class="mp" style="--x:27%;--y:27%;--i:1;--c1:#ff8fb8;--c2:#fff"><b class="mp__ola">Olá!</b><svg class="mp__flag" viewBox="0 0 44 58" aria-hidden="true"><use href="#pennant"/></svg></span>
       <span class="mp" style="--x:52.4%;--y:21%;--i:2;--c1:#c9b6ff;--c2:#fff"><b class="mp__ola">Olá!</b><svg class="mp__flag" viewBox="0 0 44 58" aria-hidden="true"><use href="#pennant"/></svg></span>
       <span class="mp" style="--x:74.5%;--y:33%;--i:3;--c1:#8fe3c0;--c2:#ffd36b"><b class="mp__ola">Olá!</b><svg class="mp__flag" viewBox="0 0 44 58" aria-hidden="true"><use href="#pennant"/></svg></span>
@@ -350,7 +350,7 @@
         <span class="map__tag sticker" style="--sh:var(--yellow)"><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#i-pin"/></svg>Pins ilustrativos</span>
       </div>
     </div>
-    <div class="clocks reveal" id="clocks">
+    <div class="clocks reveal lite" id="clocks">
       <div class="clk sticker" data-tz="America/Sao_Paulo" style="--sh:var(--yellow)">
         <div class="clk__face"><svg viewBox="0 0 120 120" aria-hidden="true"><circle class="clk__bg" cx="60" cy="60" r="54"/><g class="clk__ticks"><circle cx="60" cy="14" r="4" fill="#ff8fb8"/><circle cx="106" cy="60" r="4" fill="#6cc0f7"/><circle cx="60" cy="106" r="4" fill="#ffd36b"/><circle cx="14" cy="60" r="4" fill="#8fe3c0"/></g><g class="clk__eyes"><circle cx="46" cy="48" r="4"/><circle cx="74" cy="48" r="4"/><path d="M50 74q10 9 20 0" fill="none"/></g><line class="clk__h" x1="60" y1="60" x2="60" y2="36"/><line class="clk__m" x1="60" y1="60" x2="60" y2="24"/><circle cx="60" cy="60" r="5" fill="#e8478a" stroke="#0d3f7a" stroke-width="3"/></svg><i class="clk__sun" aria-hidden="true"></i></div>
         <b class="clk__city">Brasília</b>
@@ -619,7 +619,6 @@
   <span>Chamar no Insta</span>
 </a>
 
-<script src="/globe.js" defer></script>
 <script src="/main.js" defer></script>
 </body>
 </html>

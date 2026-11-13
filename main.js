@@ -16,12 +16,14 @@ document.documentElement.classList.add('js');
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeMenu(); });
 
   /* ---------- sticker reveal ---------- */
+  // secoes pesadas (globo e mapa) usam o reveal leve, sem filtro de sombra animado
+  document.querySelectorAll('#online .reveal, #mundo .reveal').forEach(function (e) { e.classList.add('lite'); });
   var rots = [-3.2, 2.6, -2.2, 3.4, -1.6, 2.2];
   var ri = 0;
   document.querySelectorAll('.reveal').forEach(function (el) {
     el.style.setProperty('--rot', rots[ri++ % rots.length] + 'deg');
     el.addEventListener('animationend', function (e) {
-      if (e.target === el && e.animationName === 'stick') el.classList.add('settled');
+      if (e.target === el && (e.animationName === 'stick' || e.animationName === 'stickLite')) el.classList.add('settled');
     });
   });
   document.querySelectorAll('.enter').forEach(function (el, i) { el.style.setProperty('--rot', rots[(i + 2) % rots.length] + 'deg'); });
@@ -298,4 +300,31 @@ document.documentElement.classList.add('js');
   /* ---------- v4: botao fixo de contato ---------- */
   var fab = document.querySelector('.fab');
   if (fab) { setTimeout(function () { fab.classList.add('show'); }, reduce ? 0 : 1400); }
+
+  /* ---------- v5: desempenho ---------- */
+  // globo: o script carrega com folga (longe da tela) e so inicia o canvas quando a secao esta perto
+  var gw = document.querySelector('.globe-wrap');
+  if (gw) {
+    var gLoaded = false, gNear = false, gStarted = false;
+    var gTry = function () {
+      if (gLoaded && gNear && !gStarted && window.__initGlobe) { gStarted = true; setTimeout(window.__initGlobe, 0); }
+    };
+    var gLoad = function () {
+      if (window.__globeLoading) return; window.__globeLoading = true;
+      var sc = document.createElement('script'); sc.src = '/globe.js'; sc.async = true;
+      sc.onload = function () { gLoaded = true; gTry(); };
+      document.head.appendChild(sc);
+    };
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (es, io) { if (es[0].isIntersecting) { gLoad(); io.disconnect(); } }, { rootMargin: '3200px 0px' }).observe(gw);
+      new IntersectionObserver(function (es, io) { if (es[0].isIntersecting) { gNear = true; gTry(); io.disconnect(); } }, { rootMargin: '800px 0px' }).observe(gw);
+    } else { gLoad(); gNear = true; }
+  }
+  // pausa animacoes continuas das secoes que estao fora da tela
+  if ('IntersectionObserver' in window) {
+    var secIo = new IntersectionObserver(function (es) {
+      es.forEach(function (en) { en.target.classList.toggle('offscreen', !en.isIntersecting); });
+    }, { rootMargin: '120px 0px' });
+    document.querySelectorAll('main > section').forEach(function (s) { secIo.observe(s); });
+  }
 })();

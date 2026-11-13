@@ -18,3 +18,9 @@ Hero, Sobre a Yasmin, Aprender, Cartinhas (Português, Matemática, Alfabetizaç
 ## Ferramentas
 - `tools/globe/`: gera `globe.js` (globo, d3-geo + esbuild) e `map.svg` (mapa plano) a partir do `world-atlas`.
 - Área da professora: link externo para https://crm-yasmin-red.vercel.app.
+
+## Performance (v5)
+- O globo e desenhado em `<canvas>` (d3-geo, `tools/globe/globe-entry.js`), carregado sob demanda (`globe.js` injetado perto da viewport) e pausado fora da tela e durante o scroll.
+- Mapa-mundi pre-renderizado em `map.svg` (geometria simplificada por `tools/globe/simplify.mjs`).
+- Sem filtros pesados (blur/drop-shadow) em SVGs grandes; sombras estaticas por mascara; animacoes apenas com transform/opacity.
+- Medido com CPU 4x throttle: sem long tasks no estado estavel; revelacao de #online e #mundo com 0 a 2 tarefas de 50 a 59 ms (ruido de headless).
