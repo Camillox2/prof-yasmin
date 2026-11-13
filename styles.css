@@ -488,7 +488,7 @@ a{color:var(--navy)}
 .clk__diff{font-family:var(--display);font-weight:800;font-size:clamp(.78rem,2.8vw,1rem);color:var(--navy);padding:.3em .8em;border-radius:16px;line-height:1.15;border-width:2.5px;box-shadow:3px 3px 0 var(--sh)}
 .clk__note{display:inline-flex;align-items:center;gap:8px;margin:34px auto 0;padding:.4em 1.2em .4em .5em;font-family:var(--display);font-weight:800;font-size:1.15rem;color:var(--navy);border-radius:999px}
 .clk__note svg{width:34px;height:34px}
-@media(max-width:600px){.mp[style*="--i:2"] .mp__ola,.mp[style*="--i:4"] .mp__ola{display:none}.clocks{align-items:flex-start}.clk__gap{align-self:center}.clk{padding-inline:4px}.clk__face{margin-bottom:2px}.clk__sun{width:30px;height:30px}.clk__sun::after{display:none}}
+@media(max-width:600px){.mp[style*="--i:2"] .mp__ola,.mp[style*="--i:4"] .mp__ola{display:none}.clocks{align-items:stretch}.clk__gap{align-self:center}.clk{padding-inline:4px}.clk__face{margin-bottom:2px}.clk__sun{width:30px;height:30px}.clk__sun::after{display:none}}
 
 /* linha do tempo: como e uma aula */
 .tl{list-style:none;padding:0;margin:56px auto 0;max-width:1000px;position:relative;--tp:0;text-align:left}
