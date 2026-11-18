@@ -129,12 +129,12 @@
   if (window.ResizeObserver) new ResizeObserver(function () { bw = 0; if (teacher) teacher.resize(); }).observe(stage);
 
   function spot() { return stage.clientWidth < 700 ? 0.2 : 0.3; }
-  async function arrive() { var t = tt(); await t.walkTo(spot()); t.face('front'); t.pose('idle'); await sleep(250); }
-  async function leave(lastOne) {
+  var here = false;
+  async function arrive() { var t = tt(); if (!here) await t.walkTo(spot()); here = true; t.face('front'); t.pose('idle'); await sleep(250); }
+  async function leave(full) {
     var t = tt();
-    t.pose('idle'); chalk.classList.add('erase'); await sleep(200);
-    await t.walkTo(0.72);
-    t.face('front'); t.pose('wave'); await sleep(900);
+    t.pose('idle'); chalk.classList.add('erase'); await sleep(full ? 200 : 600);
+    if (full) { await t.walkTo(0.72); here = false; t.face('front'); t.pose('wave'); await sleep(700); }
     chalk.innerHTML = ''; chalk.className = 'sala__chalk'; cta.classList.remove('is-pop'); t.pose('idle'); await sleep(250);
   }
   async function toBoard() { var t = tt(); t.pose('idle'); t.face('board'); await sleep(450); t.pose('write'); }
@@ -163,7 +163,7 @@
     t.pose('idle'); await kid('Uau! Quantas letras!', 2);
     t.pose('cheer'); kidsAll('cheer', true); await say('Muito bem, turma!');
     kidsAll('cheer', false);
-    await leave();
+    await leave(false);
   }
 
   // 2) musiquinha do ABC, estilo karaokê
@@ -193,12 +193,12 @@
       }
       t.talk(false); await sleep(150);
     }
-    bubbleOn('♪ Agora eu já sei o ABC!'); t.talk(true); await sleep(1200); t.talk(false); await sleep(1000);
+    bubbleOn('♪ Agora eu já sei o ABC!'); t.talk(true); await sleep(1200); t.talk(false); await sleep(700);
     bubbleOff(); kidsBox.classList.remove('singing'); t.pose('idle'); await sleep(300);
     await kid('De novo, prof! De novo!', 0);
     t.pose('cheer'); kidsAll('cheer', true); await say('Vocês cantaram lindo!');
     kidsAll('cheer', false);
-    await leave();
+    await leave(false);
   }
 
   // 3) vogais
@@ -219,7 +219,7 @@
     t.pose('cheer'); kidsAll('cheer', true); await say('Isso! Muito bem!');
     kidsAll('cheer', false);
     t.pose('wave'); cta.classList.add('is-pop'); await say('Bora estudar comigo?', 2600);
-    await leave();
+    await leave(true);
   }
 
   var LS = [lessonAlphabet, lessonSong, lessonVowels];
