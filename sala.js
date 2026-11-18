@@ -10,11 +10,26 @@
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   var LESSONS = [
-    { lines: [[['A B C', 'w']], [['A', 'y'], [' de ', 'w'], ['abelha', 'p']]], a: 'Oi! Vamos aprender?', b: 'Olha o que eu escrevi!', c: 'Muito bem!' },
-    { lines: [[['1 + 2 = ', 'w'], ['3', 'y']], [['Contar é ', 'w'], ['divertido', 'b']]], a: 'Agora os números!', b: 'Conta comigo!', c: 'Você é demais!' },
-    { lines: [[['As cores', 'w']], [['rosa ', 'p'], ['azul ', 'b'], ['verde', 'g']]], a: 'E as cores?', b: 'Que lindo, né?', c: 'Bora estudar comigo?' }
+    { lines: [[['A B C', 'w']], [['A', 'y'], [' de ', 'w'], ['abelha', 'p']]], a: 'Oi! Vamos aprender?', b: 'Olha o que eu escrevi!', c: 'Muito bem!',
+      on: function (l, i, ch) { if (l === 0 && ch !== ' ') return '♪ ' + ch + '!'; if (l === 1 && i === 4) return 'Abelha!'; }, hi: ['Oi, prof!', 'Vamos!'], yay: ['Ebaaa!', 'A B C!'] },
+    { lines: [[['1 + 2 = ', 'w'], ['3', 'y']], [['Contar é ', 'w'], ['divertido', 'b']]], a: 'Agora os números!', b: 'Conta comigo!', c: 'Você é demais!',
+      on: function (l, i, ch) { if (l === 0 && ch === '=') return 'Eu sei, prof!'; if (l === 0 && ch === '3') return 'Três!'; }, hi: ['Eba, números!'], yay: ['Ebaaa!', 'Acertei!'] },
+    { lines: [[['As cores', 'w']], [['rosa ', 'p'], ['azul ', 'b'], ['verde', 'g']]], a: 'E as cores?', b: 'Que lindo, né?', c: 'Bora estudar comigo?',
+      on: function (l, i, ch) { if (l === 1) return ({ 0: 'Rosa!', 5: 'Azul!', 10: 'Verde!' })[i]; }, hi: ['Eu amo cores!'], yay: ['Ebaaa!', 'Eu quero!', 'Ebaaa!'] }
   ];
   var COLORS = ['c1', 'c2', 'c3'];
+  var kidEls = [].slice.call(sec.querySelectorAll('.aluno'));
+  function kids() { return kidEls.filter(function (k) { return k.offsetParent !== null; }); }
+  var kidTurn = 0;
+  function kidSay(text, idx, ms) {
+    var ks = kids(); if (!ks.length) return;
+    var k = ks[(idx == null ? kidTurn++ : idx) % ks.length], b = k.querySelector('.aluno__say');
+    b.textContent = text; b.classList.add('show');
+    var arm = Math.random() < 0.5 ? 'up-l' : 'up-r'; k.classList.add(arm);
+    clearTimeout(k._t); k._n = (k._n || 0) + 1; var n = k._n;
+    sleep(ms || 1100).then(function () { if (k._n === n) { b.classList.remove('show'); k.classList.remove('up-l', 'up-r'); } });
+  }
+  function kidsAll(cls, on) { kids().forEach(function (k) { k.classList.toggle(cls, on); }); }
 
   function webgl() {
     try { var c = document.createElement('canvas'); return !!(window.WebGLRenderingContext && (c.getContext('webgl2') || c.getContext('webgl'))); } catch (e) { return false; }
@@ -38,16 +53,16 @@
 
   if (reduce) {
     LESSONS[0].lines.forEach(function (l) { line(l).forEach(function (s) { s.classList.add('on'); }); });
-    btxt.textContent = LESSONS[0].a; bubble.classList.add('show', 'c1', 'static'); if (stage.clientWidth >= 700) bubble.classList.add('to-left'); stage.classList.add('is-lite');
+    btxt.textContent = LESSONS[0].a; bubble.classList.add('show', 'c1', 'static'); if (kidEls[1]) { kidEls[1].classList.add('up-r'); var kb = kidEls[1].querySelector('.aluno__say'); kb.textContent = 'Oi, prof!'; kb.classList.add('show'); } if (stage.clientWidth >= 700) bubble.classList.add('to-left'); stage.classList.add('is-lite');
     return;
   }
 
   // relógio que pausa fora da tela / aba oculta
   var T = 0, waits = [], visible = false, raf = 0, last = 0, teacher = null, writing = null;
   function sleep(ms) { return new Promise(function (r) { waits.push({ t: T + ms, r: r }); }); }
-  function write(parts) {
+  function write(parts, on) {
     var spans = line(parts);
-    return new Promise(function (r) { writing = { spans: spans, t0: T, n: 0, r: r }; });
+    return new Promise(function (r) { writing = { spans: spans, t0: T, n: 0, r: r, on: on }; });
   }
   var shim = {
     update: function () {}, render: function () {}, resize: function () {}, setX: function () {},
@@ -85,7 +100,7 @@
     for (var i = waits.length - 1; i >= 0; i--) if (waits[i].t <= T) { waits.splice(i, 1)[0].r(); }
     if (writing) {
       var n = Math.min(writing.spans.length, Math.floor((T - writing.t0) / 95));
-      while (writing.n < n) writing.spans[writing.n++].classList.add('on');
+      while (writing.n < n) { var sp = writing.spans[writing.n]; sp.classList.add('on'); if (writing.on) { var kt = writing.on(writing.n, sp.textContent); if (kt) kidSay(kt); } writing.n++; }
       if (writing.n >= writing.spans.length) { var r = writing.r; writing = null; r(); }
     }
     if (teacher) { teacher.update(dt); teacher.render(); }
@@ -102,14 +117,18 @@
   async function lesson(L, last) {
     var tt = teacher || shim;
     await tt.walkTo(spot());
-    tt.face('front'); tt.pose('wave'); await say(L.a, 2300);
+    tt.face('front'); tt.pose('wave');
+    sleep(1300).then(function () { L.hi.forEach(function (h, j) { sleep(j * 500).then(function () { kidSay(h); }); }); });
+    await say(L.a, 2300);
     tt.pose('idle'); tt.face('board'); await sleep(450); tt.pose('write');
-    for (var i = 0; i < L.lines.length; i++) { await write(L.lines[i]); await sleep(260); }
+    for (var i = 0; i < L.lines.length; i++) { await write(L.lines[i], (function (li) { return function (ci, ch) { return L.on && L.on(li, ci, ch); }; })(i)); await sleep(260); }
     tt.pose('idle'); await sleep(250); tt.face('front'); await sleep(300);
-    tt.pose('point'); await say(L.b, 2200);
+    tt.pose('point'); kidsAll('nod', true); sleep(700).then(function () { kidSay('Uau!'); });
+    await say(L.b, 2200); kidsAll('nod', false);
     tt.pose('cheer'); if (last) cta.classList.add('is-pop');
+    kidsAll('cheer', true); L.yay.forEach(function (y, j) { sleep(250 + j * 380).then(function () { kidSay(y, null, 1300); }); });
     await say(L.c, last ? 2600 : 1900);
-    tt.pose('idle'); await sleep(300);
+    tt.pose('idle'); kidsAll('cheer', false); await sleep(300);
     chalk.classList.add('erase');
     await tt.walkTo(0.84);
     tt.face('front'); tt.pose('wave'); await sleep(1100);
