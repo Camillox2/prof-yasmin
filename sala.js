@@ -87,14 +87,14 @@
     bw = 0; bubble.classList.add('show'); placeBubble();
   }
   function bubbleOff() { bubble.classList.remove('show'); tt().talk(false); }
-  function readMs(text) { return Math.min(4600, Math.max(3000, 1700 + text.length * 70)); }
+  function readMs(text) { return Math.min(2600, Math.max(1800, 1100 + text.length * 40)); }
   // professora fala (uma pessoa por vez), depois uma pausa
   async function say(text, ms) {
     ms = ms || readMs(text);
     bubbleOn(text); tt().talk(true);
-    await sleep(Math.min(1500, ms * 0.45)); tt().talk(false);
-    await sleep(ms - Math.min(1500, ms * 0.45));
-    bubbleOff(); await sleep(550);
+    await sleep(ms * 0.5); tt().talk(false);
+    await sleep(ms * 0.5);
+    bubbleOff(); await sleep(300);
   }
   // aluninho responde (um por vez)
   var kidTurn = 0;
@@ -102,8 +102,8 @@
     var ks = kids(); if (!ks.length) return;
     var k = ks[(idx == null ? kidTurn++ : idx) % ks.length], b = k.querySelector('.aluno__say');
     b.textContent = text; b.classList.add('show'); k.classList.add(k._arm = (kidTurn % 2 ? 'up-l' : 'up-r'));
-    await sleep(ms || Math.min(3600, Math.max(2600, 1500 + text.length * 65)));
-    b.classList.remove('show'); k.classList.remove('up-l', 'up-r'); await sleep(500);
+    await sleep(ms || Math.min(2400, Math.max(1700, 1000 + text.length * 40)));
+    b.classList.remove('show'); k.classList.remove('up-l', 'up-r'); await sleep(280);
   }
   function kidsAll(cls, on) { kids().forEach(function (k) { k.classList.toggle(cls, on); }); }
 
@@ -129,16 +129,16 @@
   if (window.ResizeObserver) new ResizeObserver(function () { bw = 0; if (teacher) teacher.resize(); }).observe(stage);
 
   function spot() { return stage.clientWidth < 700 ? 0.2 : 0.3; }
-  async function arrive() { var t = tt(); await t.walkTo(spot()); t.face('front'); t.pose('idle'); await sleep(400); }
+  async function arrive() { var t = tt(); await t.walkTo(spot()); t.face('front'); t.pose('idle'); await sleep(250); }
   async function leave(lastOne) {
     var t = tt();
-    t.pose('idle'); chalk.classList.add('erase'); await sleep(300);
-    await t.walkTo(0.84);
-    t.face('front'); t.pose('wave'); await sleep(1400);
-    chalk.innerHTML = ''; chalk.className = 'sala__chalk'; cta.classList.remove('is-pop'); t.pose('idle'); await sleep(400);
+    t.pose('idle'); chalk.classList.add('erase'); await sleep(200);
+    await t.walkTo(0.72);
+    t.face('front'); t.pose('wave'); await sleep(900);
+    chalk.innerHTML = ''; chalk.className = 'sala__chalk'; cta.classList.remove('is-pop'); t.pose('idle'); await sleep(250);
   }
-  async function toBoard() { var t = tt(); t.pose('idle'); t.face('board'); await sleep(700); t.pose('write'); }
-  async function toClass() { var t = tt(); t.pose('idle'); await sleep(300); t.face('front'); await sleep(600); }
+  async function toBoard() { var t = tt(); t.pose('idle'); t.face('board'); await sleep(450); t.pose('write'); }
+  async function toClass() { var t = tt(); t.pose('idle'); await sleep(200); t.face('front'); await sleep(400); }
 
   // 1) apresentação + alfabeto de A a Z
   async function lessonAlphabet() {
@@ -148,21 +148,21 @@
     t.pose('idle'); await kid('Oi, prof. Yasmin!', 0);
     await say('Hoje vamos aprender o alfabeto!');
     await kid('Ebaaa! O alfabeto!', 1);
-    await say('Olhem o quadro!', 2600);
+    await say('Olhem o quadro!', 1700);
     await toBoard();
     var groups = [['A B C D E', 0, 'A, B, C, D, E...'], [' F G H I', 0, 'F, G, H, I...'], ['J K L M N', 1, 'J, K, L, M, N...'], [' O P Q R', 1, 'O, P, Q, R...'], ['S T U V', 2, 'S, T, U, V...'], [' W X Y Z', 2, 'W, X, Y e Z!']];
     var rows = [], col = rainbow();
     for (var g = 0; g < groups.length; g++) {
       var G = groups[g]; if (!rows[G[1]]) rows[G[1]] = newLine();
       bubbleOn(G[2]); t.talk(true);
-      var t0 = T; await write(rows[G[1]], G[0], col, 560); t.talk(false);
-      await sleep(Math.max(500, 3000 - (T - t0))); bubbleOff(); await sleep(450);
+      var t0 = T; await write(rows[G[1]], G[0], col, 300); t.talk(false);
+      await sleep(Math.max(350, 1900 - (T - t0))); bubbleOff(); await sleep(220);
     }
     await toClass();
     t.pose('point'); await say('Pronto! São 26 letras!');
     t.pose('idle'); await kid('Uau! Quantas letras!', 2);
     t.pose('cheer'); kidsAll('cheer', true); await say('Muito bem, turma!');
-    kidsAll('cheer', false); await kid('Eu já sei o alfabeto!', 3);
+    kidsAll('cheer', false);
     await leave();
   }
 
@@ -172,8 +172,8 @@
     await arrive();
     await say('Agora vem a musiquinha do ABC!');
     await kid('Eba! Eu sei cantar!', 4);
-    t.pose('wave'); await say('Então canta comigo!', 3000);
-    var B = 560;
+    t.pose('wave'); await say('Então canta comigo!', 2000);
+    var B = 430;
     var phrases = [['ABCDEFG', [1, 1, 1, 1, 1, 1, 2]], ['HIJKLMNOP', [1, 1, 1, 1, .5, .5, .5, .5, 2]], ['QRS', [1, 1, 2]], ['TUV', [1, 1, 2]], ['WXYZ', [1, 1, 1, 2]]];
     var rows = [newLine(), newLine(), newLine(), newLine()], rowOf = [0, 1, 2, 2, 3], col = rainbow();
     t.pose('sing'); kidsBox.classList.add('singing');
@@ -191,10 +191,10 @@
         if (j < letters.length - 1) addChars(row, ' ', 'w')[0].classList.add('on');
         await sleep(B * beats[j]);
       }
-      t.talk(false); await sleep(250);
+      t.talk(false); await sleep(150);
     }
-    bubbleOn('♪ Agora eu já sei o ABC!'); t.talk(true); await sleep(1600); t.talk(false); await sleep(1800);
-    bubbleOff(); kidsBox.classList.remove('singing'); t.pose('idle'); await sleep(500);
+    bubbleOn('♪ Agora eu já sei o ABC!'); t.talk(true); await sleep(1200); t.talk(false); await sleep(1000);
+    bubbleOff(); kidsBox.classList.remove('singing'); t.pose('idle'); await sleep(300);
     await kid('De novo, prof! De novo!', 0);
     t.pose('cheer'); kidsAll('cheer', true); await say('Vocês cantaram lindo!');
     kidsAll('cheer', false);
@@ -211,14 +211,14 @@
     chalk.classList.add('sala__chalk--big');
     var row = newLine();
     bubbleOn('São as letras A, E, I, O, U!'); t.talk(true);
-    var t0 = T; await write(row, 'A E I O U', rainbow(), 700); t.talk(false);
-    await sleep(Math.max(600, 3800 - (T - t0))); bubbleOff(); await sleep(450);
+    var t0 = T; await write(row, 'A E I O U', rainbow(), 420); t.talk(false);
+    await sleep(Math.max(400, 2500 - (T - t0))); bubbleOff(); await sleep(250);
     await toClass();
     t.pose('point'); await say('Repitam comigo: A, E, I, O, U!');
     t.pose('idle'); kidsAll('nod', true); await kid('A, E, I, O, U!', 2); kidsAll('nod', false);
     t.pose('cheer'); kidsAll('cheer', true); await say('Isso! Muito bem!');
-    kidsAll('cheer', false); await kid('Eu acertei!', 3);
-    t.pose('wave'); cta.classList.add('is-pop'); await say('Bora estudar comigo?', 3800);
+    kidsAll('cheer', false);
+    t.pose('wave'); cta.classList.add('is-pop'); await say('Bora estudar comigo?', 2600);
     await leave();
   }
 

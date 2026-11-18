@@ -780,3 +780,17 @@ html:not(.js) .fab{opacity:1}
 .sala__bubble>span>span{margin-right:.22em}
 .sala__kids.singing .aluno::before{font-size:1.9rem;text-shadow:0 0 3px #fff,0 0 6px #fff}
 .sala__bubble.static{max-width:calc(80% - 64px)}@media(min-width:700px){.sala__bubble.static{max-width:260px}}
+/* v6.3: sala e alunos maiores */
+.sala .wrap{width:min(1320px,100% - 24px)}
+.sala__room{--ft:480px;margin-inline:-12px}
+.sala__stage{height:600px}
+.sala__kids{height:176px}
+.aluno{width:31%}
+.aluno__say{font-size:1.05rem}
+@media(min-width:700px){
+  .sala__room{--ft:448px}
+  .sala__stage{height:560px}
+  .sala__kids{height:236px;justify-content:space-evenly}
+  .aluno{width:min(15%,180px)}
+  .aluno__say{font-size:1.25rem}
+}

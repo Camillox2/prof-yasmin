@@ -41,7 +41,7 @@ export async function createTeacher(canvas, stage, url, opts = {}) {
   const modelH = hp.y + 0.2;
   const wp = (b) => { const v = new Vector3(); b.getWorldPosition(v); return v; };
   const L1 = wp(B.leftUpperLeg).distanceTo(wp(B.leftLowerLeg)), L2 = wp(B.leftLowerLeg).distanceTo(wp(B.leftFoot));
-  const THETA = 0.36, SPEED = 0.8;
+  const THETA = 0.38, SPEED = 1.05;
   const OMEGA = SPEED * Math.PI / (2 * (L1 + L2) * Math.sin(THETA));
 
   // layout: pés em f, topo da cabeça em gTop (frações da altura do palco)
@@ -49,7 +49,7 @@ export async function createTeacher(canvas, stage, url, opts = {}) {
   function resize() {
     W = stage.clientWidth; H = stage.clientHeight; aspect = W / H;
     const mobile = W < 700;
-    const f = mobile ? 0.95 : 0.95, gTop = mobile ? 0.47 : 0.33;
+    const f = mobile ? 0.95 : 0.95, gTop = mobile ? 0.46 : 0.3;
     halfH = modelH / (2 * (f - gTop));
     const d = halfH / Math.tan((FOV / 2) * Math.PI / 180);
     const cy = (f - 0.5) * 2 * halfH;
