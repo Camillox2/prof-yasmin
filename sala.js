@@ -228,8 +228,8 @@
 
   if (!use3d) { stage.classList.add('is-lite'); run(); return; }
   stage.classList.add('is-loading');
-  import('/prof3d.js').then(function (m) {
-    return m.createTeacher(canvas, stage, '/assets/prof-yasmin-3d.vrm', { startX: -0.12 });
+  import('/prof3d.js?v=efc53a3b').then(function (m) {
+    return m.createTeacher(canvas, stage, '/assets/professora-a8156715.vrm', { startX: -0.12 });
   }).then(function (t) {
     teacher = t; stage.classList.remove('is-loading'); stage.classList.add('is-3d'); run();
   }).catch(function (e) {

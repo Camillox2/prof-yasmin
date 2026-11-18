@@ -330,7 +330,7 @@ document.documentElement.classList.add('js');
   // v6: mini aula 3D, so carrega sala.js (e depois o three.js e a personagem) perto da secao
   var sala = document.getElementById('sala');
   if (sala) {
-    var salaLoad = function () { var sc = document.createElement('script'); sc.src = '/sala.js'; sc.async = true; document.head.appendChild(sc); };
+    var salaLoad = function () { var sc = document.createElement('script'); sc.src = '/sala.js?v=cca1d07b'; sc.async = true; document.head.appendChild(sc); };
     if ('IntersectionObserver' in window) {
       new IntersectionObserver(function (es, io) { if (es[0].isIntersecting) { salaLoad(); io.disconnect(); } }, { rootMargin: '900px 0px' }).observe(sala);
     } else salaLoad();

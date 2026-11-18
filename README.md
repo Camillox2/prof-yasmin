@@ -27,7 +27,7 @@ Hero, Sobre a Yasmin, Aprender, Cartinhas (Português, Matemática, Alfabetizaç
 
 ## Mini aula 3D (v6)
 - Seção `#sala` no fim da página: sala de aula ilustrada (SVG/CSS), quadro negro, aluninhos, a professora 3D anda pelo chão e dá 3 mini aulas (alfabeto, musiquinha do ABC, vogais) com balões de fala. `?aula=2` ou `?aula=3` começa direto numa aula (para testes).
-- `main.js` só injeta `sala.js` quando a seção está a ~900px da tela; `sala.js` então importa `prof3d.js` (three.js + three-vrm, gerado por `tools/prof3d`) e o modelo `assets/prof-yasmin-3d.vrm`.
+- `main.js` só injeta `sala.js` quando a seção está a ~900px da tela; `sala.js` então importa `prof3d.js` (three.js + three-vrm, gerado por `tools/prof3d`) e o modelo `assets/professora-a8156715.vrm`.
 - Renderização pausada fora da tela e com a aba oculta; pixelRatio máximo 1.5.
-- Versão leve (imagem `assets/prof3d-poster.webp` + quadro animado) para: sem WebGL, `deviceMemory<=2`, 2 núcleos ou menos, economia de dados, ou `?lite` na URL. Com `prefers-reduced-motion`, tudo fica parado.
+- Versão leve (imagem `assets/prof3d-poster-8047e260.webp` + quadro animado) para: sem WebGL, `deviceMemory<=2`, 2 núcleos ou menos, economia de dados, ou `?lite` na URL. Com `prefers-reduced-motion`, tudo fica parado.
 - Créditos e licença do modelo: `CREDITS.md`.

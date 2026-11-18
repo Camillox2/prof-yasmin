@@ -1,6 +1,6 @@
 # Créditos e licenças
 
-## Professora 3D (`assets/prof-yasmin-3d.vrm`, `assets/prof3d-poster.webp`)
+## Professora 3D (`assets/professora-a8156715.vrm`, `assets/prof3d-poster-8047e260.webp`)
 - Modelo: **Victoria Rubin** (ヴィクトリア・ルービン, "AvatarSample_G"), amostra oficial das versões beta/alpha do VRoid Studio.
 - Autor: VRoid Project (pixiv Inc.).
 - Fonte do arquivo: https://opengameart.org/content/vroid-studio-cc0-models (`avatarsample_g.zip`), publicado como **CC0** (modelos das versões antigas do VRoid Studio liberados pela VRoid em CC0; ver também https://vroid.pixiv.help/hc/en-us/articles/4402614652569).

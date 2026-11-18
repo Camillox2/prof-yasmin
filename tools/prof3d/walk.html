@@ -2,7 +2,7 @@
 <div id="st" style="position:relative;width:900px;height:600px"><canvas id="cv" style="width:100%;height:100%"></canvas></div>
 <script type="module">
 import { createTeacher } from '/prof3d.js';
-const t = await createTeacher(document.getElementById('cv'), document.getElementById('st'), '/assets/prof-yasmin-3d.vrm', { startX: 0.1 });
+const t = await createTeacher(document.getElementById('cv'), document.getElementById('st'), '/assets/professora-a8156715.vrm', { startX: 0.1 });
 window.T=t; t.walkTo(0.9);
 window.step=(n)=>{for(let i=0;i<n;i++) t.update(1/60); t.render();};
 document.title='ready';
