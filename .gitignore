@@ -7,3 +7,5 @@ __pycache__
 refshot.py
 frames.py
 shot2.py
+node_modules
+.env*

@@ -623,3 +623,65 @@ html:not(.js) .fab{opacity:1}
 /* secoes fora da tela pausam todas as animacoes continuas */
 .offscreen *,.offscreen *::before,.offscreen *::after{animation-play-state:paused!important}
 .mp__flag{will-change:transform}
+
+/* ---------- v6: mini aula com a professora 3D ---------- */
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.sala{padding:84px 0 0;overflow:hidden;background:
+  radial-gradient(circle at 20px 20px,rgba(255,255,255,.75) 0 4px,transparent 5px) 0 0/48px 48px,
+  linear-gradient(180deg,#d9efff 0%,#efe6ff 55%,#ffe3ef 100%)}
+.sala h2{margin-bottom:.3em}
+.sala__stage{position:relative;height:600px;margin-inline:-18px;contain:layout paint}
+.sala__board{position:absolute;left:3%;right:3%;top:2%;height:40%;border-radius:20px;border:12px solid #d99a5b;outline:3px solid var(--navy);
+  box-shadow:7px 8px 0 var(--navy),inset 0 0 40px rgba(0,0,0,.35);
+  background:radial-gradient(ellipse at 30% 25%,rgba(255,255,255,.08),transparent 60%),linear-gradient(160deg,#2f6b5a,#1f4d42)}
+.sala__tray{position:absolute;left:8%;right:8%;bottom:-20px;height:10px;background:#b8773d;border:3px solid var(--navy);border-radius:6px;display:flex;gap:10px;justify-content:flex-end;padding-right:12px}
+.sala__tray i{width:22px;height:8px;border-radius:4px;margin-top:-9px;border:2px solid var(--navy);background:#fff}
+.sala__tray i:nth-child(2){background:var(--pink)}.sala__tray i:nth-child(3){background:var(--yellow)}
+.sala__chalk{position:absolute;inset:6% 5% 8%;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:.05em;
+  font-family:var(--hand);font-weight:700;font-size:clamp(2.3rem,10vw,3.4rem);line-height:1.05;color:#fbfbf2;text-align:center;transition:opacity .6s}
+.sala__chalk.erase{opacity:0}
+.sala__line{white-space:nowrap;text-shadow:0 0 2px rgba(255,255,255,.55),1px 1px 0 rgba(255,255,255,.15)}
+.sala__line .ch{opacity:0;display:inline-block;white-space:pre;transform:translateY(4px) scale(.7);transition:opacity .18s,transform .25s cubic-bezier(.3,1.6,.5,1)}
+.sala__line .ch.on{opacity:.95;transform:none}
+.k-y{color:#ffe27a}.k-p{color:#ffb3d1}.k-b{color:#a8dcff}.k-g{color:#b5f2cf}
+.sala__floor{position:absolute;left:0;right:0;bottom:0;height:12%;border-top:3px solid var(--navy);
+  background:repeating-linear-gradient(90deg,#ffd36b 0 60px,#ffc24a 60px 120px)}
+.sala__floor::after{content:"";position:absolute;left:50%;bottom:24%;width:min(70%,640px);height:46%;transform:translateX(-50%);border-radius:999px;border:3px solid var(--navy);
+  background:repeating-linear-gradient(90deg,var(--pink) 0 28px,var(--blue) 28px 56px,var(--mint) 56px 84px,var(--lilac) 84px 112px)}
+.sala__canvas{position:absolute;inset:0;width:100%;height:100%;z-index:3;pointer-events:none;opacity:0;transition:opacity .5s}
+.sala__stage.is-3d .sala__canvas{opacity:1}
+.sala__poster{position:absolute;z-index:3;bottom:3.5%;left:20%;height:52%;width:auto;transform:translateX(-50%);display:none;pointer-events:none}
+.sala__stage.is-lite .sala__poster,.sala__stage.is-loading .sala__poster{display:block}
+.sala__stage.is-lite.is-walk .sala__poster{animation:salaHop .45s ease-in-out 2}
+.sala__stage.is-lite[data-pose=cheer] .sala__poster{animation:salaHop .5s ease-in-out infinite}
+@keyframes salaHop{50%{transform:translateX(-50%) translateY(-10px) rotate(-2deg)}}
+.sala__bubble{position:absolute;left:0;top:0;width:max-content;z-index:5;pointer-events:none;max-width:min(78%,300px);
+  font-family:var(--display);font-weight:800;font-size:1.12rem;line-height:1.15;color:var(--navy);
+  background:#fff;border:3px solid var(--navy);border-radius:22px;padding:.5em .95em;box-shadow:4px 4px 0 var(--pink-d);
+  opacity:0;transition:opacity .2s;will-change:transform}
+.sala__bubble span{display:block;transition:transform .3s cubic-bezier(.3,1.7,.5,1);transform:scale(.6)}
+.sala__bubble.show{opacity:1}.sala__bubble.show span{transform:none}
+.sala__bubble::after{content:"";position:absolute;left:14px;bottom:-15px;width:20px;height:20px;background:inherit;border:3px solid var(--navy);border-top:0;border-left:0;
+  transform:skewX(-28deg) rotate(45deg);border-radius:0 0 6px 0}
+.sala__bubble.to-left::after{left:auto;right:14px;transform:skewX(28deg) rotate(45deg)}
+.sala__bubble.c1{background:#fff2c9;box-shadow:4px 4px 0 var(--pink-d)}
+.sala__bubble.c2{background:#ffd9e8;box-shadow:4px 4px 0 var(--blue)}
+.sala__bubble.c3{background:#d9f7ea;box-shadow:4px 4px 0 #b08cff}
+.sala__bubble.static{left:calc(20% + 58px);top:47%}
+.sala__deco{position:absolute;z-index:1;font-size:2rem;color:var(--pink-d);animation:salaFloat 4s ease-in-out infinite}
+.sala__deco.sd1{left:4%;top:49%;color:#ffb347}.sala__deco.sd2{right:5%;top:51%;animation-delay:-1.3s}.sala__deco.sd3{right:24%;top:58%;color:#6cc0f7;animation-delay:-2.6s}
+@keyframes salaFloat{50%{transform:translateY(-10px) rotate(12deg)}}
+.offscreen .sala__deco{animation-play-state:paused}
+.sala__cta{padding:22px 0 60px}
+.sala__cta .btn.is-pop{animation:salaPop .6s cubic-bezier(.3,1.6,.5,1) 3}
+@keyframes salaPop{50%{transform:scale(1.1) rotate(-2deg)}}
+@media(min-width:700px){
+  .sala__stage{height:560px;margin-inline:0}
+  .sala__board{left:6%;right:6%;top:3%;height:56%}
+  .sala__chalk{left:38%;align-items:flex-start;text-align:left;font-size:clamp(3rem,5vw,4.3rem)}
+  .sala__poster{left:30%;height:58%}
+  .sala__bubble{font-size:1.3rem}
+  .sala__bubble.static{left:auto;right:calc(70% + 66px);top:40%}
+  .sala__deco.sd1{top:64%}.sala__deco.sd2{top:66%}.sala__deco.sd3{top:72%}
+}
+@media (prefers-reduced-motion:reduce){.sala__deco,.sala__cta .btn.is-pop{animation:none}}

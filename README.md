@@ -24,3 +24,10 @@ Hero, Sobre a Yasmin, Aprender, Cartinhas (Português, Matemática, Alfabetizaç
 - Mapa-mundi pre-renderizado em `map.svg` (geometria simplificada por `tools/globe/simplify.mjs`).
 - Sem filtros pesados (blur/drop-shadow) em SVGs grandes; sombras estaticas por mascara; animacoes apenas com transform/opacity.
 - Medido com CPU 4x throttle: sem long tasks no estado estavel; revelacao de #online e #mundo com 0 a 2 tarefas de 50 a 59 ms (ruido de headless).
+
+## Mini aula 3D (v6)
+- Seção `#sala` no fim da página: quadro negro, a professora 3D anda pelo chão, escreve 3 mini aulas e fala em balões.
+- `main.js` só injeta `sala.js` quando a seção está a ~900px da tela; `sala.js` então importa `prof3d.js` (three.js + three-vrm, gerado por `tools/prof3d`) e o modelo `assets/prof-yasmin-3d.vrm`.
+- Renderização pausada fora da tela e com a aba oculta; pixelRatio máximo 1.5.
+- Versão leve (imagem `assets/prof3d-poster.webp` + quadro animado) para: sem WebGL, `deviceMemory<=2`, 2 núcleos ou menos, economia de dados, ou `?lite` na URL. Com `prefers-reduced-motion`, tudo fica parado.
+- Créditos e licença do modelo: `CREDITS.md`.
