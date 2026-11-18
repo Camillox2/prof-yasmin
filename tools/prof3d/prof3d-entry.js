@@ -31,7 +31,7 @@ export async function createTeacher(canvas, stage, url, opts = {}) {
   // sombra redonda no chão
   const sc = document.createElement('canvas'); sc.width = sc.height = 64;
   const g = sc.getContext('2d'); const rg = g.createRadialGradient(32, 32, 2, 32, 32, 32);
-  rg.addColorStop(0, 'rgba(13,63,122,.38)'); rg.addColorStop(1, 'rgba(13,63,122,0)'); g.fillStyle = rg; g.fillRect(0, 0, 64, 64);
+  rg.addColorStop(0, 'rgba(13,40,90,.5)'); rg.addColorStop(1, 'rgba(13,63,122,0)'); g.fillStyle = rg; g.fillRect(0, 0, 64, 64);
   const shadow = new Mesh(new PlaneGeometry(0.75, 0.42), new MeshBasicMaterial({ map: new CanvasTexture(sc), transparent: true, depthWrite: false }));
   shadow.rotation.x = -Math.PI / 2; shadow.position.y = 0.003; scene.add(shadow);
 
@@ -39,6 +39,10 @@ export async function createTeacher(canvas, stage, url, opts = {}) {
   vrm.update(0);
   const hp = new Vector3(); B.head.getWorldPosition(hp);
   const modelH = hp.y + 0.2;
+  const wp = (b) => { const v = new Vector3(); b.getWorldPosition(v); return v; };
+  const L1 = wp(B.leftUpperLeg).distanceTo(wp(B.leftLowerLeg)), L2 = wp(B.leftLowerLeg).distanceTo(wp(B.leftFoot));
+  const THETA = 0.36, SPEED = 0.8;
+  const OMEGA = SPEED * Math.PI / (2 * (L1 + L2) * Math.sin(THETA));
 
   // layout: pés em f, topo da cabeça em gTop (frações da altura do palco)
   let W = 1, H = 1, halfH = 1, aspect = 1;
@@ -68,11 +72,13 @@ export async function createTeacher(canvas, stage, url, opts = {}) {
     const s = Math.sin, br = s(tt * 2.1) * 0.025;
     const p = {
       spine: [br, 0, 0], chest: [br * 0.6, 0, 0], neck: [0, 0, 0], head: [0, 0, s(tt * 0.8) * 0.05],
-      leftUpperArm: [0, 0, -1.2], leftLowerArm: [0, -0.3, 0], leftHand: [0, 0, 0],
-      rightUpperArm: [0, 0, 1.2], rightLowerArm: [0, 0.3, 0], rightHand: [0, 0, 0],
-      leftUpperLeg: [0, 0, 0], leftLowerLeg: [0, 0, 0], leftFoot: [0, 0, 0],
-      rightUpperLeg: [0, 0, 0], rightLowerLeg: [0, 0, 0], rightFoot: [0, 0, 0], hips: [0, 0, 0]
+      leftUpperArm: [0.05, 0, -1.22], leftLowerArm: [0, -0.35, 0], leftHand: [0, 0, 0.1],
+      rightUpperArm: [0.05, 0, 1.22], rightLowerArm: [0, 0.35, 0], rightHand: [0, 0, -0.1],
+      leftUpperLeg: [-0.03, 0, 0.035], leftLowerLeg: [0.04, 0, 0], leftFoot: [-0.01, 0, -0.03],
+      rightUpperLeg: [-0.12, 0.08, -0.01], rightLowerLeg: [0.2, 0, 0], rightFoot: [-0.08, 0, 0.02],
+      hips: [0, -0.06, -0.035 + s(tt * 0.9) * 0.012]
     };
+    p.spine[2] = 0.03 - s(tt * 0.9) * 0.01;
     if (m === 'wave') {
       p.leftUpperArm = [0, -0.25, 1.05];
       p.leftLowerArm = [0, 0, 0.35 - s(tt * 9) * 0.45];
@@ -87,6 +93,11 @@ export async function createTeacher(canvas, stage, url, opts = {}) {
       p.leftLowerArm = [0, -0.2, 0];
       p.leftHand = [0, 0, 0.15];
       p.head = [0, -0.18, 0.06];
+    } else if (m === 'sing') {
+      const bt = s(tt * 6.5);
+      p.hips = [0, 0, bt * 0.04]; p.spine = [0.02, 0, -bt * 0.05]; p.head = [0.05, 0, bt * 0.12];
+      p.leftUpperArm = [0, -0.5, -0.35 + Math.abs(bt) * 0.35]; p.leftLowerArm = [0, -0.9, 0];
+      p.rightUpperArm = [0, 0.5, 0.35 - Math.abs(bt) * 0.35]; p.rightLowerArm = [0, 0.9, 0];
     } else if (m === 'cheer') {
       const k = s(tt * 10) * 0.12;
       p.leftUpperArm = [0, 0, 1.0 + k]; p.leftLowerArm = [0, 0, 0.35];
@@ -106,37 +117,59 @@ export async function createTeacher(canvas, stage, url, opts = {}) {
     // locomoção
     let moving = false;
     if (target != null) {
-      const dx = target - x, sp = 0.95 * dt;
+      const dx = target - x, sp = SPEED * dt;
       if (Math.abs(dx) <= sp) { x = target; target = null; const cb = onArrive; onArrive = null; if (cb) cb(); }
       else { x += Math.sign(dx) * sp; moving = true; yawT = dx > 0 ? YAW.right : YAW.left; }
     }
     walkW += ((moving ? 1 : 0) - walkW) * (1 - Math.exp(-dt * 10));
-    if (moving) phase += dt * 5.4;
+    if (moving) phase += dt * OMEGA;
     // giro suave
     let dy = yawT - yaw; while (dy > Math.PI) dy -= 2 * Math.PI; while (dy < -Math.PI) dy += 2 * Math.PI;
     yaw += dy * (1 - Math.exp(-dt * 5));
     // pose
     const tgt = pose(moving ? 'idle' : mode, t), k = 1 - Math.exp(-dt * 14);
     BONES.forEach((n) => { const c = cur[n], q = tgt[n]; for (let i = 0; i < 3; i++) c[i] += (q[i] - c[i]) * k; });
-    const s = Math.sin(phase), w = walkW;
+    const w = walkW, sp = Math.sin, cp = Math.cos;
+    const bump = (a, c) => { let d = a - c; d = Math.atan2(Math.sin(d), Math.cos(d)); return Math.exp(-d * d / 0.25); };
+    // perna: ângulo da coxa (+ = para trás), joelho dobra na fase de balanço, pé rola (calcanhar, ponta)
+    function leg(ph) {
+      const a1 = -THETA * sp(ph);
+      const swing = Math.max(0, cp(ph - 0.25));
+      const a2 = 0.07 + 0.62 * Math.pow(swing, 1.4) + 0.12 * bump(ph, Math.PI / 2 + 0.45);
+      const foot = -(a1 + a2) * 0.85 - 0.28 * bump(ph, Math.PI / 2) + 0.45 * bump(ph, -Math.PI / 2 - 0.25);
+      return [a1, a2, foot];
+    }
+    const lg = leg(phase), rg = leg(phase + Math.PI);
+    let drop = 0;
+    if (w > 0.001) {
+      const vert = (g) => L1 * cp(g[0]) + L2 * cp(g[0] + g[1]);
+      drop = (L1 + L2 - Math.max(vert(lg), vert(rg))) * w;
+    }
+    const sP = sp(phase);
     BONES.forEach((n) => {
       const e = cur[n].slice();
       if (w > 0.001) {
-        if (n === 'leftUpperLeg') e[0] += -s * 0.32 * w;
-        if (n === 'rightUpperLeg') e[0] += s * 0.32 * w;
-        if (n === 'leftLowerLeg') e[0] += Math.max(0, -s) * 0.45 * w;
-        if (n === 'rightLowerLeg') e[0] += Math.max(0, s) * 0.45 * w;
-        if (n === 'leftUpperArm') e[0] += s * 0.35 * w;
-        if (n === 'rightUpperArm') e[0] += -s * 0.35 * w;
-        if (n === 'spine') e[1] += s * 0.08 * w;
-        if (n === 'hips') e[1] += -s * 0.06 * w;
+        const mix = (i, v) => { e[i] = e[i] * (1 - w) + v * w; };
+        if (n === 'leftUpperLeg') { mix(0, lg[0]); mix(1, 0); mix(2, 0.02); }
+        if (n === 'leftLowerLeg') mix(0, lg[1]);
+        if (n === 'leftFoot') mix(0, lg[2]);
+        if (n === 'rightUpperLeg') { mix(0, rg[0]); mix(1, 0); mix(2, -0.02); }
+        if (n === 'rightLowerLeg') mix(0, rg[1]);
+        if (n === 'rightFoot') mix(0, rg[2]);
+        if (n === 'leftUpperArm') e[0] += -lg[0] * 0.9 * w;
+        if (n === 'rightUpperArm') e[0] += -rg[0] * 0.9 * w;
+        if (n === 'leftLowerArm') e[1] += -Math.max(0, lg[0]) * 0.6 * w;
+        if (n === 'rightLowerArm') e[1] += Math.max(0, rg[0]) * 0.6 * w;
+        if (n === 'hips') { e[1] += sP * 0.1 * w; e[2] += sP * 0.045 * w; }
+        if (n === 'spine') { e[1] += -sP * 0.08 * w; e[2] += -sP * 0.03 * w; e[0] += 0.04 * w; }
+        if (n === 'head') { e[1] += sP * 0.03 * w; }
       }
       apply(n, e);
     });
     cheerHop += (((mode === 'cheer' && !moving) ? 1 : 0) - cheerHop) * (1 - Math.exp(-dt * 8));
-    const bob = Math.abs(Math.cos(phase)) * 0.03 * w + Math.abs(Math.sin(t * 8)) * 0.06 * cheerHop;
+    const bob = -drop + Math.abs(Math.sin(t * 8)) * 0.06 * cheerHop;
     root.position.set(x, bob, 0); root.rotation.y = yaw;
-    shadow.position.x = x; shadow.scale.setScalar(1 - bob * 2);
+    shadow.position.x = x; shadow.scale.setScalar(1 - Math.max(0, bob) * 2);
     // rosto
     blinkT -= dt; if (blinkT < 0) { blink = 1; blinkT = 2.2 + Math.random() * 2.8; }
     blink = Math.max(0, blink - dt * 7);
